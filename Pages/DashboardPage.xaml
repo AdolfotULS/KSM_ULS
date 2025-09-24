@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KSM_ULS.Pages.DashboardPage"
+             Title="Dashboard">
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="200,*">
+        <!-- Encabezado -->
+        <Grid Grid.ColumnSpan="2" Padding="16" BackgroundColor="{DynamicResource SecondaryColor}">
+            <Label Text="Dashboard" FontSize="22" FontAttributes="Bold" />
+        </Grid>
+
+        <!-- Menú lateral -->
+        <VerticalStackLayout Grid.Row="1" Padding="8" Spacing="6">
+            <Button Text="Resumen"    Clicked="OnResumenClicked" />
+            <Button Text="Clientes" Clicked="OnClientesClicked" />
+            <!--  <Button Text="Reportes"   Clicked="OnReportesClicked" /> -->
+            <!-- Agrega más botones para nuevas subvistas -->
+        </VerticalStackLayout>
+
+        <!-- Host de la subvista -->
+        <ContentView x:Name="Host" Grid.Row="1" Grid.Column="1" Padding="8" />
+    </Grid>
+</ContentPage>
