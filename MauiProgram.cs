@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using CommunityToolkit.Maui;
+
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 
 namespace KSM_ULS
@@ -10,7 +11,11 @@ namespace KSM_ULS
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>().UseMauiCommunityToolkit()
+
+                
+                .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -20,6 +25,7 @@ namespace KSM_ULS
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
 
             return builder.Build();
         }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup 
+    x:Class="KSMULS.Views.NuevaGarantiaPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <VerticalStackLayout Padding="24" Spacing="14" BackgroundColor="White" WidthRequest="400" HeightRequest="450">
+        <Label Text="Registrar Nueva Garantía" FontAttributes="Bold" FontSize="20"/>
+        <Entry Placeholder="Ticket asociado"/>
+        <Entry Placeholder="Duración de la garantía"/>
+        <Entry Placeholder="Fecha de inicio"/>
+        <Entry Placeholder="Fecha de vencimiento"/>
+        <Editor Placeholder="Términos y condiciones de la garantía"/>
+        <Editor Placeholder="Notas adicionales"/>
+        <HorizontalStackLayout Spacing="10" VerticalOptions="End">
+            <Button Text="Cancelar" Command="{Binding CloseCommand}" />
+            <Button Text="Registrar Garantía" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</toolkit:Popup>

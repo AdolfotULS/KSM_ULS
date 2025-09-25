@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="KSM_ULS.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:KSM_ULS"
-    xmlns:pages="clr-namespace:KSM_ULS.Pages"
-    xmlns:views="clr-namespace:KSM_ULS.Views"
-    Title="KSM_ULS">
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:KSM_ULS.Pages"
+       x:Class="KSM_ULS.AppShell">
 
-    <!-- Puedes añadir más secciones (Clientes, Órdenes) luego -->
+
+    <!-- 
+    Prueba 1: Mostrar Garantías 
+
+    <!-- Puedes añadir más secciones (Clientes, Órdenes) luego 
     <ShellContent Title="Dashboard"
                 ContentTemplate="{DataTemplate pages:LoginPage}" />
     
+    -->
+
+    
+    <TabBar>
+        <ShellContent Title="Garantías"
+                      ContentTemplate="{DataTemplate pages:GarantiasPage}" />
+    </TabBar>
+    
+    
+
+    <!-- 
+    Prueba 2: Mostrar Dashboard
+    
+    -->
+    
+    <!--
+    <TabBar>
+        <ShellContent Title="Dashboard"
+                      ContentTemplate="{DataTemplate pages:DashboardPage}" />
+    </TabBar>
+    -->
+
 
 </Shell>

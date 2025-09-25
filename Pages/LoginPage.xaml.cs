@@ -19,16 +19,20 @@ public partial class LoginPage : ContentPage
 
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(pass))
             {
-                ErrorLabel.Text = "Completa usuario y contraseÒa";
+                ErrorLabel.Text = "Completa usuario y contrase√±a";
                 return;
             }
 
             //var ok = await _auth.LoginAsync(user, pass);
             var ok = user == "admin" && pass == "admin";
-            if (!ok) { ErrorLabel.Text = "Credenciales inv·lidas"; return; }
+            if (!ok) { ErrorLabel.Text = "Credenciales inv√°lidas"; return; }
 
             Preferences.Set("IsLoggedIn", true);
-            Application.Current.MainPage = new DashboardPage(); // entra al Dashboard
+
+
+            // Solo navega a AppShell
+            Application.Current.MainPage = new AppShell();
+
         }
         catch (Exception ex) { ErrorLabel.Text = ex.Message; }
         finally { Busy.IsVisible = Busy.IsRunning = false; }

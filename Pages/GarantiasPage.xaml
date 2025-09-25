@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KSM_ULS.Views"
+             x:Class="KSM_ULS.Pages.GarantiasPage"
+             Title="Gestión de Garantías">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Gestión de Garantías" FontSize="24" FontAttributes="Bold"/>
+            <Label Text="Administra las garantías de servicios realizados" FontSize="14" TextColor="Gray"/>
+
+            <!-- Resumen -->
+            <Grid ColumnDefinitions="*,*,*,*">
+                <Frame BorderColor="#E5E7EB" CornerRadius="10" Padding="10" Grid.Column="0">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="3" FontSize="20" FontAttributes="Bold"/>
+                        <Label Text="Total Garantías" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BorderColor="#E5E7EB" CornerRadius="10" Padding="10" Grid.Column="1">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="1" FontSize="20" FontAttributes="Bold" TextColor="Green"/>
+                        <Label Text="Activas" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BorderColor="#E5E7EB" CornerRadius="10" Padding="10" Grid.Column="2">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="0" FontSize="20" FontAttributes="Bold" TextColor="Orange"/>
+                        <Label Text="Por Vencer" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame BorderColor="#E5E7EB" CornerRadius="10" Padding="10" Grid.Column="3">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="1" FontSize="20" FontAttributes="Bold" TextColor="Goldenrod"/>
+                        <Label Text="Pendientes" FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Buscador -->
+            <SearchBar Placeholder="Buscar por cliente, servicio, ticket o ID..."
+                       BackgroundColor="White"/>
+
+            <!-- Botón Nueva Garantía -->
+            <Button Text="Nueva Garantía"
+                    BackgroundColor="#2563EB"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Clicked="NuevaGarantia_Clicked"
+                    HorizontalOptions="End"/>
+
+            <!-- Lista de Garantías -->
+            <CollectionView x:Name="GarantiasList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:GarantiaCard />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

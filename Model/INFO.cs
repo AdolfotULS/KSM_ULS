@@ -10,4 +10,5 @@ namespace KSM_ULS.Model
     {
         // La carpeta model tiene la funcionlidad de albergar los objetos que interacturan con la base de datos
     }
+
 }
