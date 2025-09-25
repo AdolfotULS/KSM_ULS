@@ -11,13 +11,18 @@
 
         <!-- Menú lateral -->
         <VerticalStackLayout Grid.Row="1" Padding="8" Spacing="6">
-            <Button Text="Resumen"    Clicked="OnResumenClicked" />
+            <Button Text="Resumen" Clicked="OnResumenClicked" />
             <Button Text="Clientes" Clicked="OnClientesClicked" />
-            <!--  <Button Text="Reportes"   Clicked="OnReportesClicked" /> -->
+            <!-- <Button Text="Reportes" Clicked="OnReportesClicked" /> -->
             <!-- Agrega más botones para nuevas subvistas -->
+
+            <HorizontalStackLayout Padding="0,50,20,50" Spacing="5">
+                <Button HorizontalOptions="Start" HeightRequest = "50" WidthRequest = "50" FontSize="8" Text="Configuración" Clicked="OnConfigClicked" />
+                <Button HorizontalOptions="End" HeightRequest = "50" WidthRequest = "50" FontSize="8" Text="Cerrar Sesión" Clicked="OnCloseSessionClicked" />
+            </HorizontalStackLayout>
         </VerticalStackLayout>
 
         <!-- Host de la subvista -->
-        <ContentView x:Name="Host" Grid.Row="1" Grid.Column="1" Padding="8" />
+        <ContentView x:Name="Host" Grid.Row="1" Grid.Column="1" Padding="8"></ContentView>
     </Grid>
 </ContentPage>

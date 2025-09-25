@@ -28,7 +28,7 @@ public partial class LoginPage : ContentPage
             if (!ok) { ErrorLabel.Text = "Credenciales inválidas"; return; }
 
             Preferences.Set("IsLoggedIn", true);
-            Application.Current.MainPage = new AppShell(); // entra al Dashboard
+            Application.Current.MainPage = new DashboardPage(); // entra al Dashboard
         }
         catch (Exception ex) { ErrorLabel.Text = ex.Message; }
         finally { Busy.IsVisible = Busy.IsRunning = false; }
