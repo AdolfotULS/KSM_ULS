@@ -5,17 +5,132 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
 
-    <VerticalStackLayout Padding="24" Spacing="14" BackgroundColor="White" WidthRequest="400" HeightRequest="450">
-        <Label Text="Registrar Nueva Garantía" FontAttributes="Bold" FontSize="20"/>
-        <Entry Placeholder="Ticket asociado"/>
-        <Entry Placeholder="Duración de la garantía"/>
-        <Entry Placeholder="Fecha de inicio"/>
-        <Entry Placeholder="Fecha de vencimiento"/>
-        <Editor Placeholder="Términos y condiciones de la garantía"/>
-        <Editor Placeholder="Notas adicionales"/>
-        <HorizontalStackLayout Spacing="10" VerticalOptions="End">
-            <Button Text="Cancelar" Command="{Binding CloseCommand}" />
-            <Button Text="Registrar Garantía" />
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+    <!-- Grid ocupa todo el espacio -->
+    <Grid BackgroundColor="White"
+          AbsoluteLayout.LayoutBounds="0,0,1,1"
+          AbsoluteLayout.LayoutFlags="All"
+          Padding="0">
+
+        <ScrollView Padding="12">
+            <VerticalStackLayout Spacing="6"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+
+                <!-- Header -->
+                <Grid ColumnDefinitions="*,Auto" Padding="0,0,0,6">
+                    <StackLayout>
+                        <Label Text="Registrar Nueva Garantía"
+                               FontSize="14"
+                               FontAttributes="Bold" />
+                        <Label Text="Registra una nueva garantía para un servicio completado"
+                               FontSize="10"
+                               TextColor="#6B7280" />
+                    </StackLayout>
+
+                    <Button Text="✕"
+                            BackgroundColor="Transparent"
+                            FontSize="12"
+                            WidthRequest="28"
+                            HeightRequest="28"
+                            Padding="0"
+                            Command="{Binding CloseCommand}" />
+                </Grid>
+
+                <!-- Ticket asociado -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Ticket asociado" FontSize="10" TextColor="#374151"/>
+                    <Picker Title="Seleccionar ticket"
+                            ItemsSource="{Binding Tickets}"
+                            SelectedItem="{Binding SelectedTicket}"
+                            BackgroundColor="#F3F4F6"
+                            FontSize="11"
+                            HeightRequest="28"/>
+                </VerticalStackLayout>
+
+                <!-- Duración -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Duración de la garantía" FontSize="10" TextColor="#374151"/>
+                    <Picker Title="Seleccionar duración"
+                            ItemsSource="{Binding Durations}"
+                            SelectedItem="{Binding SelectedDuration}"
+                            BackgroundColor="#F3F4F6"
+                            FontSize="11"
+                            HeightRequest="28"/>
+                </VerticalStackLayout>
+
+                <!-- Fecha inicio (editable) -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Fecha de inicio" FontSize="10" TextColor="#374151"/>
+                    <DatePicker Date="{Binding FechaInicioDate}"
+                                Format="dd-MM-yyyy"
+                                BackgroundColor="#F3F4F6"
+                                FontSize="11"
+                                HeightRequest="28"/>
+                </VerticalStackLayout>
+
+                <!-- Fecha vencimiento (calculada, deshabilitada) -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Fecha de vencimiento" FontSize="10" TextColor="#374151"/>
+                    <DatePicker Date="{Binding FechaVencimientoDate}"
+                                Format="dd-MM-yyyy"
+                                BackgroundColor="#F3F4F6"
+                                FontSize="11"
+                                HeightRequest="28"
+                                IsEnabled="False"/>
+                </VerticalStackLayout>
+
+                <!-- Días restantes (solo visualización) -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Días restantes" FontSize="10" TextColor="#374151"/>
+                    <Label Text="{Binding DiasRestantes}" 
+                           BackgroundColor="#F3F4F6"
+                           FontSize="11"
+                           HeightRequest="28"/>
+                </VerticalStackLayout>
+
+                <!-- Términos -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Términos y condiciones" FontSize="10" TextColor="#374151"/>
+                    <Editor Text="{Binding Terminos}"
+                            Placeholder="Describe qué cubre la garantía..."
+                            BackgroundColor="#F3F4F6"
+                            FontSize="11"
+                            HeightRequest="50"/>
+                </VerticalStackLayout>
+
+                <!-- Notas -->
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Notas adicionales" FontSize="10" TextColor="#374151"/>
+                    <Editor Text="{Binding Notas}"
+                            Placeholder="Observaciones o comentarios"
+                            BackgroundColor="#F3F4F6"
+                            FontSize="11"
+                            HeightRequest="40"/>
+                </VerticalStackLayout>
+
+                <!-- Footer -->
+                <Grid ColumnDefinitions="Auto,Auto" HorizontalOptions="End" ColumnSpacing="6" Padding="0,6,0,0">
+                    <Button Text="Cancelar"
+                            FontSize="11"
+                            BackgroundColor="Transparent"
+                            BorderColor="#E5E7EB"
+                            BorderWidth="1"
+                            CornerRadius="6"
+                            Padding="8,4"
+                            Command="{Binding CloseCommand}"
+                            Grid.Column="0"/>
+
+                    <Button Text="Registrar"
+                            FontSize="11"
+                            BackgroundColor="#2563EB"
+                            TextColor="White"
+                            CornerRadius="6"
+                            Padding="10,4"
+                            Command="{Binding SaveCommand}"
+                            Grid.Column="1"/>
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </toolkit:Popup>

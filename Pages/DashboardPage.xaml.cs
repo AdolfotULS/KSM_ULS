@@ -17,6 +17,11 @@ public partial class DashboardPage : ContentPage
 
     void OnClientesClicked(object sender, EventArgs e) => Host.Content = new Views.DashClientsView();
     //void OnReportesClicked(object sender, EventArgs e) => Host.Content = new Views.DashReportsView();
+    void OnGarantiasClicked(object sender, EventArgs e)
+    {
+        var garantiasPage = new Pages.GarantiasPage();
+        Host.Content = garantiasPage.Content;
+    }
 
     async void OnConfigClicked(object sender, EventArgs e)
     {
@@ -27,6 +32,11 @@ public partial class DashboardPage : ContentPage
 
     void OnCloseSessionClicked(object sender, EventArgs e) {
         Application.Current.MainPage = new LoginPage(); // entra al Dashboard
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+
     }
     //cierra sesion -- envia al usuario a la pantalla de login
     // considerar, que tenemos que borrar cualquier credencial de usuario de sale de la cuenta

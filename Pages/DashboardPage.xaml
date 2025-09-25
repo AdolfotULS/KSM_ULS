@@ -13,6 +13,8 @@
         <VerticalStackLayout Grid.Row="1" Padding="8" Spacing="6">
             <Button Text="Resumen" Clicked="OnResumenClicked" />
             <Button Text="Clientes" Clicked="OnClientesClicked" />
+            <Button Text="Garantias" Clicked="OnGarantiasClicked"/>
+
             <!-- <Button Text="Reportes" Clicked="OnReportesClicked" /> -->
             <!-- Agrega más botones para nuevas subvistas -->
 

@@ -7,7 +7,9 @@
 
     <!-- 
     Prueba 1: Mostrar Garantías 
-
+    
+    -->
+    
     <!-- Puedes añadir más secciones (Clientes, Órdenes) luego 
     <ShellContent Title="Dashboard"
                 ContentTemplate="{DataTemplate pages:LoginPage}" />
@@ -16,8 +18,8 @@
 
     
     <TabBar>
-        <ShellContent Title="Garantías"
-                      ContentTemplate="{DataTemplate pages:GarantiasPage}" />
+        <ShellContent Title="Dashboard"
+                      ContentTemplate="{DataTemplate pages:DashboardPage}" />
     </TabBar>
     
     

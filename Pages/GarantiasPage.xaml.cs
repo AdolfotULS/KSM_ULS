@@ -2,11 +2,13 @@ using CommunityToolkit.Maui.Extensions;
 using KSM_ULS.Model;
 using CommunityToolkit.Maui.Views;
 using KSMULS.Views;
+using System.Collections.ObjectModel;
 
 namespace KSM_ULS.Pages;
 
 public partial class GarantiasPage : ContentPage
 {
+    public ObservableCollection<Garantia> Garantias { get; set; }
 
     /*
     Objetivo: Forzar el tema claro al aparecer la página de garantías.
@@ -28,8 +30,7 @@ public partial class GarantiasPage : ContentPage
 
         InitializeComponent();
 
-        
-        GarantiasList.ItemsSource = new List<Garantia>
+        Garantias = new ObservableCollection<Garantia>
         {
             //datos de ejemplo para comprobar la vista de las garantias
 
@@ -65,12 +66,9 @@ public partial class GarantiasPage : ContentPage
                 Notas = "Pendiente de entrega del equipo",
                 PuedeActivar = true
             }
-
-
-
         };
 
-
+        GarantiasList.ItemsSource = Garantias;
         
     }
     /*
@@ -83,7 +81,16 @@ public partial class GarantiasPage : ContentPage
      */
     private void NuevaGarantia_Clicked(object sender, EventArgs e)
     {
-        var popup = new NuevaGarantiaPopup();
+        var popup = new NuevaGarantiaPopup(AgregarGarantia);
         this.ShowPopup(popup);
+    }
+
+    // Permite agregar una garantía desde el popup
+    public void AgregarGarantia(Garantia nuevaGarantia)
+    {
+        Garantias.Add(nuevaGarantia);
+
+        // Próximamente: aquí se guardará la garantía en la base de datos
+        // await GuardarGarantiaEnBaseDeDatosAsync(nuevaGarantia);
     }
 }
