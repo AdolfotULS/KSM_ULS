@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KSM_ULS.Views.GarantiaCard">
+
+    <Frame BorderColor="#E5E7EB"
+           BackgroundColor="White"
+           CornerRadius="12"
+           Padding="15"
+           Margin="0,10"
+           HasShadow="True">
+
+        <VerticalStackLayout Spacing="8">
+
+            <!-- Encabezado -->
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{Binding Codigo}" FontAttributes="Bold"/>
+                <Frame Padding="5,2" CornerRadius="8" BackgroundColor="{Binding EstadoColor}">
+                    <Label Text="{Binding Estado}" TextColor="White" FontSize="12"/>
+                </Frame>
+                <Frame Padding="5,2" CornerRadius="8" BackgroundColor="#E0E7FF">
+                    <Label Text="{Binding Ticket}" FontSize="12"/>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Título -->
+            <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold"/>
+            <Label Text="Cliente:" FontAttributes="Bold" FontSize="13"/>
+            <Label Text="{Binding Cliente}" FontSize="13"/>
+
+            <!-- Fechas -->
+            <HorizontalStackLayout Spacing="20">
+                <Label Text="📅 Inicio:" FontSize="12" TextColor="Gray"/>
+                <Label Text="{Binding FechaInicio}" FontSize="12"/>
+                <Label Text="📅 Vence:" FontSize="12" TextColor="Gray"/>
+                <Label Text="{Binding FechaVencimiento}" FontSize="12"/>
+            </HorizontalStackLayout>
+
+            <Label Text="⏳ Duración:" FontSize="12" TextColor="Gray"/>
+            <Label Text="{Binding Duracion}" FontSize="12" TextColor="Gray"/>
+            <Label Text="{Binding DiasRestantes}" FontSize="12" TextColor="Gray"/>
+
+            <!-- Detalles -->
+            <Label Text="Términos:" FontAttributes="Bold" FontSize="12"/>
+            <Label Text="{Binding Terminos}" FontSize="12" TextColor="Gray"/>
+            <Label Text="Notas:" FontAttributes="Bold" FontSize="12"/>
+            <Label Text="{Binding Notas}" FontSize="12" TextColor="Gray"/>
+
+            <!-- Botones -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                <Button Text="Ver Detalles" FontSize="12" Padding="10,5"/>
+                <Button Text="Editar" FontSize="12" Padding="10,5"/>
+                <Button Text="Activar" FontSize="12" Padding="10,5" IsVisible="{Binding PuedeActivar}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Frame>
+</ContentView>
