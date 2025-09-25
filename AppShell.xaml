@@ -10,7 +10,7 @@
 
     <!-- Puedes añadir más secciones (Clientes, Órdenes) luego -->
     <ShellContent Title="Dashboard"
-                ContentTemplate="{DataTemplate pages:DashboardPage}" />
+                ContentTemplate="{DataTemplate pages:LoginPage}" />
     
 
 </Shell>

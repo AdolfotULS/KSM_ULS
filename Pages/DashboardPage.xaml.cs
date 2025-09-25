@@ -25,7 +25,9 @@ public partial class DashboardPage : ContentPage
     }
     // Cuando se presiona el boton de config abre menu popup con todas las opciones de configuracion respectivas 
 
-    void OnCloseSessionClicked(object sender, EventArgs e) { }
+    void OnCloseSessionClicked(object sender, EventArgs e) {
+        Application.Current.MainPage = new LoginPage(); // entra al Dashboard
+    }
     //cierra sesion -- envia al usuario a la pantalla de login
     // considerar, que tenemos que borrar cualquier credencial de usuario de sale de la cuenta
 }
