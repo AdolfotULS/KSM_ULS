@@ -3,24 +3,31 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:pages="clr-namespace:KSM_ULS.Pages"
        x:Class="KSM_ULS.AppShell">
-    <!-- Prueba para vista Garantias -->
+
+    <!-- 
+    Prueba 1: Mostrar Garantías 
     
+    -->
+
     
-    <!--
     <TabBar>
         <ShellContent Title="Garantías"
                       ContentTemplate="{DataTemplate pages:GarantiasPage}" />
     </TabBar>
     
+    
+
+    <!-- 
+    Prueba 2: Mostrar Dashboard
+    
     -->
-
     
-     <TabBar>
-         <ShellContent Title="Dashboard"
-                      ContentTemplate="{DataTemplate pages:GarantiasPage}" />
+    <!--
+    <TabBar>
+        <ShellContent Title="Dashboard"
+                      ContentTemplate="{DataTemplate pages:DashboardPage}" />
     </TabBar>
-
-    
+    -->
 
 
 </Shell>
