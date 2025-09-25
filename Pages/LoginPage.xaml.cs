@@ -29,8 +29,10 @@ public partial class LoginPage : ContentPage
 
             Preferences.Set("IsLoggedIn", true);
 
+
             // Solo navega a AppShell
             Application.Current.MainPage = new AppShell();
+
         }
         catch (Exception ex) { ErrorLabel.Text = ex.Message; }
         finally { Busy.IsVisible = Busy.IsRunning = false; }

@@ -4,8 +4,13 @@
        xmlns:pages="clr-namespace:KSM_ULS.Pages"
        x:Class="KSM_ULS.AppShell">
 
+
     <!-- 
     Prueba 1: Mostrar Garantías 
+
+    <!-- Puedes añadir más secciones (Clientes, Órdenes) luego 
+    <ShellContent Title="Dashboard"
+                ContentTemplate="{DataTemplate pages:LoginPage}" />
     
     -->
 
