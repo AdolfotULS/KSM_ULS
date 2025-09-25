@@ -15,6 +15,11 @@
             <Button Text="Clientes" Clicked="OnClientesClicked" />
             <!--  <Button Text="Reportes"   Clicked="OnReportesClicked" /> -->
             <!-- Agrega más botones para nuevas subvistas -->
+
+            <HorizontalStackLayout Grid.Row="0.5" Padding ="5" Spacing ="4">
+                <Button Text="Configuración" Clicked="OnConfigClicked" />
+                <Button Text="Cerrar Sesion" Clicked="OnCloseSessionClicked"
+            </HorizontalStackLayout>
         </VerticalStackLayout>
 
         <!-- Host de la subvista -->
