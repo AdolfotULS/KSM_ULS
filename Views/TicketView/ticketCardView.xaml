@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KSM_ULS.Views.TicketView.ticketCardView">
+    <HorizontalStackLayout>
+        <Label 
+            Text="Nombre Ticket*" x:Name="ticketName"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" />
+        <Label x:Name="ticketStateLabel" Text="estado Ticket*" VerticalOptions="Start"></Label>
+        <Label x:Name="ticketPriorityLabel" Text="prioridad Ticket*" VerticalOptions="Start"></Label>
+        <Button x:Name="ticketEditionButton" Text="Editar" VerticalOptions="Start" HorizontalOptions="End" CornerRadius="10" Clicked="onClickedEditTicketButton"></Button>
+        <Picker x:Name="ticketStatePicker" Title="Estado">
+                   <Picker.Items>
+                <x:String>Finalizado</x:String>
+                <x:String>Pendiente</x:String>
+                <x:String>En Proceso</x:String> 
+            </Picker.Items>
+        </Picker>
+        <VerticalStackLayout Margin="3" Spacing="7" >
+            <Label x:Name="ticketClientName" Text="{Binding clientName}" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="ticketTecnitianName" Text="{Binding clientName}" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="ticketLimitDate" Text="Fecha limite*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="tickeAmountRemuneration" Text="Remuneracion*" TextColor="LightGray" FontSize="10"></Label>
+            
+        </VerticalStackLayout>
+    </HorizontalStackLayout>
+</ContentView>
