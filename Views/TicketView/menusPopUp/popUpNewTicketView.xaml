@@ -8,5 +8,7 @@
             Text="new Ticket Menu"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button Text="cerrar" Clicked="onClickedClosePopUp"></Button>
+
     </VerticalStackLayout>
 </toolkit:Popup>

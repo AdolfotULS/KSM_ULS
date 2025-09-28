@@ -21,6 +21,7 @@
             </Picker.ItemsSource>
         </Picker>
         </HorizontalStackLayout>
+        <Label x:Name="ticketDescription" Text="Descripcion de ticket breve" TextColor="Gray" FontSize="13"></Label>
         <HorizontalStackLayout Margin="3" Spacing="7">
             <Label x:Name="ticketClientName" Text="{Binding clientName}" TextColor="LightGray" FontSize="10"></Label>
             <Label x:Name="ticketTecnitianName" Text="{Binding tecnitianName}" TextColor="LightGray" FontSize="10"></Label>

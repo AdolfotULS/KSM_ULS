@@ -8,4 +8,8 @@ public partial class popUpNewTicketView : Popup
 	{
 		InitializeComponent();
 	}
+    void onClickedClosePopUp(object sender, EventArgs e)
+    {
+        this.CloseAsync();
+    }
 }

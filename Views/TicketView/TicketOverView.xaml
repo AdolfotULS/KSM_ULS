@@ -14,7 +14,7 @@
             <Label Text="Administra los tickets de servicio Tecnico" HorizontalOptions="Center"></Label>
             <Button Text="+ Nuevo ticket" HorizontalOptions="End" Clicked="onClickedButtonNewTicketCreation"></Button>
         </HorizontalStackLayout>
-        <SearchBar x:Name ="searchbarTicketQuery" Text="{Binding searchSolicitude}" Placeholder="Especificaciones Ticket" Background="White" TextChanged="onChangeTextSearchBarTickets"></SearchBar>
+        <SearchBar x:Name ="searchbarTicketQuery" Text="" Placeholder="Especificaciones Ticket" Background="White" TextChanged="onChangeTextSearchBarTickets"></SearchBar>
         
             <Border Margin="5" Padding="2">
             <CollectionView x:Name="ticketList" ItemsLayout="VerticalList" Margin="5">

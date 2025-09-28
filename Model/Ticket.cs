@@ -11,8 +11,10 @@ namespace KSM_ULS.Model
     {
         public int Id { get; set; }
         public string clientName { get; set; } //TODO transform this in a tecnitian class
-        public string[] tecnitianNames { get; set; } //TODO transform this in a tecnitian class
+        public string tecnitianNames { get; set; } //TODO transform this in a tecnitian class + deberia ser una lista, varios tecnicos mismo ticket
         public string limitDate { get; set; }
+        public string description { get; set; }
+
         public string creationDate { get; set; }
         public int expectedRemuneration = 0;
         protected int ticketState = 0; //0 inactivo, 1 en proceso, 2 finalizado TODO checkear esta logica
@@ -24,7 +26,7 @@ namespace KSM_ULS.Model
         private bool isCopyTicket = false; //TODO save data of original version of ticket to recuparate if any case
         private Ticket copyTicket;          // + could be a list of versions in DB instead of local machine 
 
-        public Ticket(int idIn, string clientData, string[] tecnitianInCharge, string limitDate = "0/0/0")
+        public Ticket(int idIn, string clientData, string tecnitianInCharge, string limitDate = "0/0/0")
         {
             this.Id = idIn;
             this.clientName = clientData;

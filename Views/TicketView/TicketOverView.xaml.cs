@@ -10,35 +10,32 @@ namespace KSM_ULS.Views.TicketView;
 public partial class TicketOverView : ContentView
 {
     private string searchQueryText ;
-    private string searchSolicitude;
+    
     private List<Ticket> ticketsUsuario { get; set; }
-    public TicketOverView()
-    {
+        public TicketOverView()
+        {
         
-        InitializeComponent();
+            InitializeComponent();
 
+            BindingContext = this;
+            ticketList.ItemsSource = new List<Ticket> {
+                    new Ticket(2,"cliente1","tec1"),
+                    new Ticket(5,"cliente2","tec2"),
+                    new Ticket(1,"cliente1","tec3"),
+                    new Ticket(3,"cliente3","tec2"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked"),
+                    new Ticket(4,"trol","hacked")
+                
+                };
+        
 
-        ticketList.ItemsSource = new List<Ticket> {
-                new Ticket(2,"cliente1",new string[]{"tec1"}),
-                new Ticket(5,"cliente2",new string[]{"tec2"}),
-                new Ticket(1,"cliente1",new string[]{"tec3"}),
-                new Ticket(3,"cliente3",new string[]{"tec2"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"}),
-                new Ticket(4,"trol",new string[]{"hacked"})
-            };
-        BindingContext = this;
-
-	}
+	    }
 
     void onChangeTextSearchBarTickets(object sender, TextChangedEventArgs eventData)
     {
@@ -53,6 +50,7 @@ public partial class TicketOverView : ContentView
 
         //TODO revisar esta logica
         var popUpNewTicket = new popUpNewTicketView();
+        popUpNewTicket.CanBeDismissedByTappingOutsideOfPopup = false;
         var pageReference = Shell.Current.CurrentPage;//rescata el elemento page actual para activar el popup desde hay
         await pageReference.ShowPopupAsync(popUpNewTicket);
     }
