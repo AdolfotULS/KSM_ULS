@@ -2,27 +2,31 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KSM_ULS.Views.TicketView.ticketCardView">
-    <HorizontalStackLayout>
+    <VerticalStackLayout>
+        <HorizontalStackLayout Margin="5" Spacing="30">
         <Label 
             Text="Nombre Ticket*" x:Name="ticketName"
             VerticalOptions="Start" 
             HorizontalOptions="Start" />
-        <Label x:Name="ticketStateLabel" Text="estado Ticket*" VerticalOptions="Start"></Label>
-        <Label x:Name="ticketPriorityLabel" Text="prioridad Ticket*" VerticalOptions="Start"></Label>
-        <Button x:Name="ticketEditionButton" Text="Editar" VerticalOptions="Start" HorizontalOptions="End" CornerRadius="10" Clicked="onClickedEditTicketButton"></Button>
-        <Picker x:Name="ticketStatePicker" Title="Estado">
-                   <Picker.Items>
+        <Label x:Name="ticketStateLabel" Text="estado Ticket*" VerticalOptions="Center"></Label>
+        <Label x:Name="ticketPriorityLabel" Text="prioridad Ticket*" VerticalOptions="Center"></Label>
+        <Button x:Name="ticketDetailButton" Text="Detales" CornerRadius="10" Clicked="onClickerDetailButton"  ></Button>
+        <Button x:Name="ticketEditionButton" Text="Editar" CornerRadius="10" Clicked="onClickedEditTicketButton"  ></Button>
+            
+        <Picker x:Name="ticketStatePicker" Title="Estado" SelectedIndexChanged="onPickerSelectionStates" >
+                   <Picker.ItemsSource>
                 <x:String>Finalizado</x:String>
                 <x:String>Pendiente</x:String>
                 <x:String>En Proceso</x:String> 
-            </Picker.Items>
+            </Picker.ItemsSource>
         </Picker>
-        <VerticalStackLayout Margin="3" Spacing="7" >
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="3" Spacing="7">
             <Label x:Name="ticketClientName" Text="{Binding clientName}" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="ticketTecnitianName" Text="{Binding clientName}" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="ticketLimitDate" Text="Fecha limite*" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="tickeAmountRemuneration" Text="Remuneracion*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="ticketTecnitianName" Text="{Binding tecnitianName}" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="ticketLimitDate" Text="{Binding limitDate}" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="tickeAmountRemuneration" Text="{Binding expectedRemuneration}" TextColor="LightGray" FontSize="10"></Label>
             
-        </VerticalStackLayout>
-    </HorizontalStackLayout>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
 </ContentView>
