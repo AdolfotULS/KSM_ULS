@@ -12,4 +12,6 @@ public partial class editTicketPupUp : Popup
 	{
 		this.CloseAsync();
 	}
+	void onClickedEditTicket(object sender, EventArgs e){
+	}
 }

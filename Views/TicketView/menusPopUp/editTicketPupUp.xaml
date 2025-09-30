@@ -5,10 +5,44 @@
                           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
 
     <VerticalStackLayout>
-        <Label 
-            Text="editPupUp"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="cerrar" Clicked="onClickedClosePopUp"></Button>
+        <HorizontalStackLayout>
+            <Label HorizontalOptions="Start" x:Name="ticketNameLabel" Text="Ticket Name place Holder*"></Label>
+            <Button HorizontalOptions="End" Text="cerrar" Clicked="onClickedClosePopUp"></Button>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Column="3">
+            <HorizontalStackLayout>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="clientNameLabel" Text="client placeHolder*"></Entry>
+                </Frame>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="TecnitiansLabel" Text="tecnitian placeholder*"></Entry>
+                </Frame>
+
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="limitDateLabel" Text="0/0/0"></Entry>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="idNameLabel" Text="id placeHolder*"></Entry>
+                </Frame>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="extraLabel" Text="extra label*"></Entry>
+                </Frame>
+
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="emisionDateLabel" Text="0/0/0 *"></Entry>
+                </Frame>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+        <Frame BorderColor="Gray" >
+            <Entry IsReadOnly="False"  x:Name="textBlockMainDescription"  Text="this is your description yeey" >
+            </Entry>
+        </Frame>
+        <!--aqui lista de comentarios respectivo TODO-->
+        <Button HorizontalOptions="End" Text="Aceptar" Clicked="onClickedEditTicket"></Button>
+
     </VerticalStackLayout>
 </toolkit:Popup>

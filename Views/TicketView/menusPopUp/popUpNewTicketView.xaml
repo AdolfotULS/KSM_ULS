@@ -4,11 +4,43 @@
              x:Class="KSM_ULS.Views.TicketView.popUpNewTicketView"
             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     <VerticalStackLayout>
-        <Label 
-            Text="new Ticket Menu"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="cerrar" Clicked="onClickedClosePopUp"></Button>
+        <HorizontalStackLayout>
+            <Label HorizontalOptions="Start" x:Name="ticketNameLabel" Text="Ticket Name place Holder*"></Label>
+            <Button HorizontalOptions="End" Text="cerrar" Clicked="onClickedClosePopUp"></Button>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Column="3">
+            <HorizontalStackLayout>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="clientNameLabel" Text="client placeHolder*"></Entry>
+                </Frame>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="TecnitiansLabel" Text="tecnitian placeholder*"></Entry>
+                </Frame>
 
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="limitDateLabel" Text="0/0/0"></Entry>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Frame BorderColor="Gray">
+                    <Entry IsReadOnly="True" x:Name="idNameLabel" Text="id automatic name*"></Entry>
+                </Frame>
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="extraLabel" Text="extra label*"></Entry>
+                </Frame>
+
+                <Frame BorderColor="Gray">
+                    <Entry x:Name="emisionDateLabel" Text="0/0/0 *"></Entry>
+                </Frame>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+        <Frame BorderColor="Gray" >
+            <Entry IsReadOnly="False"  x:Name="textBlockMainDescription"  Text="this is your description yeey" >
+            </Entry>
+        </Frame>
+        <!--aqui lista de comentarios respectivo TODO-->
+        <Button HorizontalOptions="End" Text="Crear" Clicked="onClickedCreateTicket"></Button>
     </VerticalStackLayout>
 </toolkit:Popup>
