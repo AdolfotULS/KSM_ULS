@@ -13,4 +13,5 @@ public partial class DashboardPage : ContentPage
 
     void OnClientesClicked(object sender, EventArgs e) => Host.Content = new Views.DashClientsView();
     //void OnReportesClicked(object sender, EventArgs e) => Host.Content = new Views.DashReportsView();
+    void onInventarioClicked(object sender, EventArgs e) => Host.Content = new Views.inventarioMenu.inventarioDashView();
 }

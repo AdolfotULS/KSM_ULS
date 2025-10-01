@@ -14,6 +14,8 @@
             <Button Text="Resumen"    Clicked="OnResumenClicked" />
             <Button Text="Clientes" Clicked="OnClientesClicked" />
             <!--  <Button Text="Reportes"   Clicked="OnReportesClicked" /> -->
+            <Button Text="Inventario" Clicked="onInventarioClicked"></Button>
+            
             <!-- Agrega más botones para nuevas subvistas -->
         </VerticalStackLayout>
 
