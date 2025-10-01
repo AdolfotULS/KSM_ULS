@@ -7,7 +7,7 @@ namespace KSM_ULS
         public App()
         {
             InitializeComponent();
-            if (Application.Current.UserAppTheme != null)
+            if (Application.Current.UserAppTheme == null)
             {
                 Application.Current.UserAppTheme = AppTheme.Light;
             }
