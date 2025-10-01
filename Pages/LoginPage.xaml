@@ -1,13 +1,139 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KSM_ULS.Pages.LoginPage"
-             Title="Login">
-    <VerticalStackLayout Padding="24" Spacing="12">
-        <Entry x:Name="UserEntry" Placeholder="Usuario" />
-        <Entry x:Name="PassEntry" Placeholder="Contraseña" IsPassword="True" />
-        <Button Text="Entrar" Clicked="OnLoginClicked" />
-        <ActivityIndicator x:Name="Busy" IsVisible="False" IsRunning="False" />
-        <Label x:Name="ErrorLabel" TextColor="Red" />
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="KSM_ULS.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Login">
+
+    <!--  Fondo con degradado suave  -->
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Offset="0.0" Color="#F5FAFF" />
+            <GradientStop Offset="1.0" Color="#EEF5FF" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <!--  Layout centrado verticalmente con una tarjeta (Frame)  -->
+    <Grid Padding="16" RowDefinitions="*,Auto,*">
+        <Frame
+            Grid.Row="1"
+            Padding="24"
+            BackgroundColor="White"
+            CornerRadius="16"
+            HasShadow="True">
+
+            <VerticalStackLayout Spacing="16">
+
+                <!--  Logo simple (círculo azul con 'K')  -->
+                <Border
+                    Background="#1565FF"
+                    HeightRequest="56"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 14"
+                    WidthRequest="56">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        HorizontalOptions="Center"
+                        Text="K"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </Border>
+
+                <!--  Títulos  -->
+                <VerticalStackLayout Margin="0,4,0,8" Spacing="2">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        HorizontalTextAlignment="Center"
+                        Text="Krakenware"
+                        TextColor="#1F2937" />
+                    <Label
+                        FontSize="13"
+                        HorizontalTextAlignment="Center"
+                        Text="Gestión de Tickets e Inventario"
+                        TextColor="#6B7280" />
+                </VerticalStackLayout>
+
+                <!--  Correo  -->
+                <Label
+                    Margin="2,0,0,-6"
+                    FontAttributes="Bold"
+                    FontSize="13"
+                    Text="Correo electrónico"
+                    TextColor="#4B5563" />
+                <Border
+                    Padding="12,10"
+                    Background="#FAFCFF"
+                    Stroke="#E7ECF5"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="1">
+                    <Entry
+                        x:Name="UserEntry"
+                        BackgroundColor="Transparent"
+                        ClearButtonVisibility="WhileEditing"
+                        Keyboard="Email"
+                        Placeholder="admin@empresa.com"
+                        PlaceholderColor="#9CA3AF"
+                        TextColor="#111827" />
+                </Border>
+
+                <!--  Contraseña  -->
+                <Label
+                    Margin="2,4,0,-6"
+                    FontAttributes="Bold"
+                    FontSize="13"
+                    Text="Contraseña"
+                    TextColor="#4B5563" />
+                <Border
+                    Padding="12,10"
+                    Background="#FAFCFF"
+                    Stroke="#E7ECF5"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="1">
+                    <Entry
+                        x:Name="PassEntry"
+                        BackgroundColor="Transparent"
+                        IsPassword="True"
+                        Placeholder="•••••••"
+                        PlaceholderColor="#9CA3AF"
+                        TextColor="#111827" />
+                </Border>
+
+                <!--  Botón principal  -->
+                <Button
+                    Padding="14,14"
+                    BackgroundColor="#1565FF"
+                    Clicked="OnLoginClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Text="Iniciar sesión"
+                    TextColor="White" />
+
+                <!--  Link Olvidaste tu contraseña  -->
+                <Label
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="¿Olvidaste tu contraseña?"
+                    TextColor="#1D4ED8">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <!--  Carga + error  -->
+                <ActivityIndicator
+                    x:Name="Busy"
+                    IsRunning="False"
+                    IsVisible="False"
+                    Color="#1565FF" />
+                <Label
+                    x:Name="ErrorLabel"
+                    FontSize="12"
+                    LineBreakMode="WordWrap"
+                    Text=""
+                    TextColor="#DC2626" />
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
 </ContentPage>
