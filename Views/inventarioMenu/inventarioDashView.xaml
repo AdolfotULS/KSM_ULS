@@ -10,8 +10,9 @@
             <Button Text="Añadir producto" HorizontalOptions="End" Clicked="onClickedAddIventory"></Button>
         </HorizontalStackLayout>
         <SearchBar x:Name="searchbarInventoryoQuery" Placeholder="Especificaciones" TextChanged="onChangeTextBarInventory" ></SearchBar>
-        <Border>
-            <CollectionView x:Name="inventoryList">
+            <Border>
+                
+                <CollectionView x:Name="inventoryList" HeightRequest="300">
                 
                     <CollectionView.ItemTemplate >
                         <DataTemplate >
@@ -20,6 +21,7 @@
                     </CollectionView.ItemTemplate>
                 
             </CollectionView>
-        </Border>
+
+            </Border>
     </VerticalStackLayout>
 </ContentView>
