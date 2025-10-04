@@ -253,6 +253,10 @@ namespace KSM_ULS.Pages
                 {
                     "Dashboard" => new Views.DashOverviewView(),
                     "Clientes" => new Views.DashClientsView(),
+                    /*"Tickets" => new Views.DashTicketsView(),
+                    "Inventario" => new Views.DashInventoryView(),
+                    "Reportes" => new Views.DashReportsView(),
+                    "Garantias" => new Views.DashWarrantiesView(),*/
                     _ => null
                 };
                 Host.Content = subView;
