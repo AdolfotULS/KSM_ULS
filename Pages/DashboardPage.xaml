@@ -84,134 +84,6 @@
         <!-- contenido principal -->
         <ScrollView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}">
             <StackLayout Padding="20" Spacing="20">
-
-                <!-- tarjeta de bienvenida -->
-                <Frame BackgroundColor="White" 
-                       HasShadow="True" 
-                       CornerRadius="10" 
-                       Padding="20">
-                    <StackLayout>
-                        <Label Text="Bienvenido al Dashboard"
-                               FontSize="20"
-                               FontAttributes="Bold"
-                               TextColor="{StaticResource SecondaryColor}" />
-                        <Label Text="Gestiona tu inventario de manera eficiente"
-                               FontSize="14"
-                               TextColor="Gray"
-                               Margin="0,5,0,0" />
-                    </StackLayout>
-                </Frame>
-
-                <!-- estadisticas -->
-                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
-
-                    <Frame Grid.Row="0" Grid.Column="0"
-                           BackgroundColor="{StaticResource PrimaryColor}"
-                           HasShadow="True"
-                           CornerRadius="10"
-                           Padding="15">
-                        <StackLayout>
-                            <Label Text="📦" FontSize="24" HorizontalOptions="Center" />
-                            <Label Text="1,234" 
-                                   FontSize="24" 
-                                   FontAttributes="Bold" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                            <Label Text="Productos" 
-                                   FontSize="12" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                        </StackLayout>
-                    </Frame>
-
-                    <Frame Grid.Row="0" Grid.Column="1"
-                           BackgroundColor="{StaticResource AccentColor}"
-                           HasShadow="True"
-                           CornerRadius="10"
-                           Padding="15">
-                        <StackLayout>
-                            <Label Text="📋" FontSize="24" HorizontalOptions="Center" />
-                            <Label Text="56" 
-                                   FontSize="24" 
-                                   FontAttributes="Bold" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                            <Label Text="Categorías" 
-                                   FontSize="12" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                        </StackLayout>
-                    </Frame>
-
-                    <Frame Grid.Row="1" Grid.Column="0"
-                           BackgroundColor="#FF9800"
-                           HasShadow="True"
-                           CornerRadius="10"
-                           Padding="15">
-                        <StackLayout>
-                            <Label Text="⚠️" FontSize="24" HorizontalOptions="Center" />
-                            <Label Text="23" 
-                                   FontSize="24" 
-                                   FontAttributes="Bold" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                            <Label Text="Stock Bajo" 
-                                   FontSize="12" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                        </StackLayout>
-                    </Frame>
-
-                    <Frame Grid.Row="1" Grid.Column="1"
-                           BackgroundColor="#4CAF50"
-                           HasShadow="True"
-                           CornerRadius="10"
-                           Padding="15">
-                        <StackLayout>
-                            <Label Text="💰" FontSize="24" HorizontalOptions="Center" />
-                            <Label Text="$89K" 
-                                   FontSize="24" 
-                                   FontAttributes="Bold" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                            <Label Text="Valor Total" 
-                                   FontSize="12" 
-                                   TextColor="White" 
-                                   HorizontalOptions="Center" />
-                        </StackLayout>
-                    </Frame>
-                </Grid>
-
-                <!-- acciones rapidas -->
-                <Frame BackgroundColor="White" 
-                       HasShadow="True" 
-                       CornerRadius="10" 
-                       Padding="20">
-                    <StackLayout>
-                        <Label Text="Acciones Rápidas"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               TextColor="{StaticResource SecondaryColor}"
-                               Margin="0,0,0,15" />
-
-                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-                            <Button Grid.Column="0"
-                                    Text="Agregar Producto"
-                                    BackgroundColor="{StaticResource PrimaryColor}"
-                                    TextColor="White"
-                                    CornerRadius="8"
-                                    Clicked="OnAgregarProductoClicked" />
-
-                            <Button Grid.Column="1"
-                                    Text="Ver Reportes"
-                                    BackgroundColor="{StaticResource SecondaryColor}"
-                                    TextColor="White"
-                                    CornerRadius="8"
-                                    Clicked="OnVerReportesClicked" />
-                        </Grid>
-                    </StackLayout>
-                </Frame>
-
                 <!-- host de la subvista -->
                 <ContentView x:Name="Host" />
 
@@ -231,7 +103,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- dashboard -->
-            <Button Grid.Column="0"
+            <Button x:Name="BottomNavDashboardButton" Grid.Column="0"
                     Text="📊 Dashboard"
                     FontSize="10"
                     BackgroundColor="Transparent"
@@ -239,7 +111,7 @@
                     Clicked="OnBottomNavDashboardClicked" />
 
             <!-- tickets -->
-            <Button Grid.Column="1"
+            <Button x:Name="BottomNavTicketsButton" Grid.Column="1"
                     Text="🎫 Tickets"
                     FontSize="10"
                     BackgroundColor="Transparent"
@@ -247,7 +119,7 @@
                     Clicked="OnBottomNavTicketsClicked" />
 
             <!-- clientes -->
-            <Button Grid.Column="2"
+            <Button x:Name="BottomNavClientesButton" Grid.Column="2"
                     Text="👥 Clientes"
                     FontSize="10"
                     BackgroundColor="Transparent"
@@ -255,7 +127,7 @@
                     Clicked="OnBottomNavClientesClicked" />
 
             <!-- inventario (activo) -->
-            <Button Grid.Column="3"
+            <Button x:Name="BottomNavInventarioButton" Grid.Column="3"
                     Text="📦 Inventario"
                     FontSize="10"
                     BackgroundColor="#E3F2FD"
@@ -264,7 +136,7 @@
                     Clicked="OnBottomNavInventarioClicked" />
 
             <!-- reportes -->
-            <Button Grid.Column="4"
+            <Button x:Name="BottomNavReportesButton" Grid.Column="4"
                     Text="📈 Reportes"
                     FontSize="10"
                     BackgroundColor="Transparent"
@@ -356,38 +228,38 @@
                                Margin="20,20,20,10" />
 
                         <!-- elementos del menu -->
-                        <Button Text="📊 Dashboard"
+                        <Button x:Name="MenuDashboardButton" Text="📊 Dashboard"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuDashboardClicked" />
 
-                        <Button Text="🎫 Tickets"
+                        <Button x:Name="MenuTicketsButton" Text="🎫 Tickets"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuTicketsClicked" />
 
-                        <Button Text="👥 Clientes"
+                        <Button x:Name="MenuClientesButton" Text="👥 Clientes"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuClientesClicked" />
 
-                        <Button Text="📦 Inventario"
+                        <Button x:Name="MenuInventarioButton" Text="📦 Inventario"
                                 BackgroundColor="#E3F2FD"
                                 TextColor="{StaticResource PrimaryColor}"
                                 FontAttributes="Bold"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuInventarioClicked" />
 
-                        <Button Text="🛡️ Garantías"
+                        <Button x:Name="MenuGarantiasButton" Text="🛡️ Garantías"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuGarantiasClicked" />
 
-                        <Button Text="📈 Reportes"
+                        <Button x:Name="MenuReportesButton" Text="📈 Reportes"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
@@ -397,14 +269,14 @@
                         <BoxView HeightRequest="20" BackgroundColor="Transparent" />
 
                         <!-- configuracion -->
-                        <Button Text="⚙️ Configuración"
+                        <Button x:Name="MenuConfiguracionButton" Text="⚙️ Configuración"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuConfiguracionClicked" />
 
                         <!-- cerrar sesion -->
-                        <Button Text="🚪 Cerrar sesión"
+                        <Button x:Name="MenuCerrarSesionButton" Text="🚪 Cerrar sesión"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource AccentColor}"
                                 HorizontalOptions="FillAndExpand"

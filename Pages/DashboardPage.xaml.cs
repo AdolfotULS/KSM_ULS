@@ -1,113 +1,232 @@
 using Microsoft.Maui.Controls;
+using System.Collections.Generic;
 
 namespace KSM_ULS.Pages
 {
     public partial class DashboardPage : ContentPage
     {
+        // Lista de botones de navegación inferior y menú lateral
+        private List<Button> bottomNavButtons;
+        private List<Button> menuButtons;
+
         public DashboardPage()
         {
             InitializeComponent();
             Title = "Krakenware";
+
+            // Inicializar listas de botones
+            bottomNavButtons = new List<Button>
+            {
+                BottomNavDashboardButton,
+                BottomNavTicketsButton,
+                BottomNavClientesButton,
+                BottomNavInventarioButton,
+                BottomNavReportesButton
+            };
+            menuButtons = new List<Button>
+            {
+                MenuDashboardButton,
+                MenuTicketsButton,
+                MenuClientesButton,
+                MenuInventarioButton,
+                MenuGarantiasButton,
+                MenuReportesButton
+            };
         }
 
-        // evento para mostrar/ocultar menu lateral
+        // Método para actualizar el color activo
+        private void SetActiveView(string viewName)
+        {
+            // Colores
+            var activeBg = Color.FromArgb("#E3F2FD");
+            var activeText = Color.FromArgb("#4A90E2"); // PrimaryColor
+            var inactiveBg = Colors.Transparent;
+            var inactiveText = Color.FromArgb("#2C3E50"); // SecondaryColor
+            var inactiveTextBottom = Colors.Gray;
+
+            // Barra inferior
+            foreach (var btn in bottomNavButtons)
+            {
+                btn.BackgroundColor = inactiveBg;
+                btn.TextColor = inactiveTextBottom;
+                btn.FontAttributes = FontAttributes.None;
+            }
+            switch (viewName)
+            {
+                case "Dashboard":
+                    BottomNavDashboardButton.BackgroundColor = activeBg;
+                    BottomNavDashboardButton.TextColor = activeText;
+                    BottomNavDashboardButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Tickets":
+                    BottomNavTicketsButton.BackgroundColor = activeBg;
+                    BottomNavTicketsButton.TextColor = activeText;
+                    BottomNavTicketsButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Clientes":
+                    BottomNavClientesButton.BackgroundColor = activeBg;
+                    BottomNavClientesButton.TextColor = activeText;
+                    BottomNavClientesButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Inventario":
+                    BottomNavInventarioButton.BackgroundColor = activeBg;
+                    BottomNavInventarioButton.TextColor = activeText;
+                    BottomNavInventarioButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Reportes":
+                    BottomNavReportesButton.BackgroundColor = activeBg;
+                    BottomNavReportesButton.TextColor = activeText;
+                    BottomNavReportesButton.FontAttributes = FontAttributes.Bold;
+                    break;
+            }
+
+            // Menú lateral
+            foreach (var btn in menuButtons)
+            {
+                btn.BackgroundColor = inactiveBg;
+                btn.TextColor = inactiveText;
+                btn.FontAttributes = FontAttributes.None;
+            }
+            switch (viewName)
+            {
+                case "Dashboard":
+                    MenuDashboardButton.BackgroundColor = activeBg;
+                    MenuDashboardButton.TextColor = activeText;
+                    MenuDashboardButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Tickets":
+                    MenuTicketsButton.BackgroundColor = activeBg;
+                    MenuTicketsButton.TextColor = activeText;
+                    MenuTicketsButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Clientes":
+                    MenuClientesButton.BackgroundColor = activeBg;
+                    MenuClientesButton.TextColor = activeText;
+                    MenuClientesButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Inventario":
+                    MenuInventarioButton.BackgroundColor = activeBg;
+                    MenuInventarioButton.TextColor = activeText;
+                    MenuInventarioButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Garantias":
+                    MenuGarantiasButton.BackgroundColor = activeBg;
+                    MenuGarantiasButton.TextColor = activeText;
+                    MenuGarantiasButton.FontAttributes = FontAttributes.Bold;
+                    break;
+                case "Reportes":
+                    MenuReportesButton.BackgroundColor = activeBg;
+                    MenuReportesButton.TextColor = activeText;
+                    MenuReportesButton.FontAttributes = FontAttributes.Bold;
+                    break;
+            }
+        }
+
+        // Muestra/oculta el menú lateral
         private void OnMenuButtonClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = !MenuOverlay.IsVisible;
         }
 
-        // evento para cerrar menu lateral
+        // Cierra el menú lateral
         private void OnCloseMenuClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
         }
 
-        // evento para el boton de opciones
+        // Muestra opciones adicionales
         private void OnOptionsButtonClicked(object sender, EventArgs e)
         {
             DisplayAlert("Opciones", "Menú de opciones adicionales", "OK");
         }
 
-        // eventos de acciones rapidas
-        private void OnAgregarProductoClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Agregar Producto", "Navegando a la página de agregar producto...", "OK");
-        }
 
+        // Acción rápida: ver reportes
         private void OnVerReportesClicked(object sender, EventArgs e)
         {
             DisplayAlert("Reportes", "Navegando a reportes...", "OK");
         }
 
-        // eventos de navegacion de la barra inferior
+        // Navegación barra inferior: Dashboard
         private void OnBottomNavDashboardClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Navegacion", "Dashboard seleccionado", "OK");
+            LoadSubView("Dashboard");
         }
 
+        // Navegación barra inferior: Tickets
         private void OnBottomNavTicketsClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Navegacion", "Tickets seleccionado", "OK");
+            LoadSubView("Tickets");
         }
 
+        // Navegación barra inferior: Clientes
         private void OnBottomNavClientesClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Navegacion", "Clientes seleccionado", "OK");
+            LoadSubView("Clientes");
         }
 
+        // Navegación barra inferior: Inventario
         private void OnBottomNavInventarioClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Navegacion", "Inventario seleccionado", "OK");
+            LoadSubView("Inventario");
         }
 
+        // Navegación barra inferior: Reportes
         private void OnBottomNavReportesClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Navegacion", "Reportes seleccionado", "OK");
+            LoadSubView("Reportes");
         }
 
-        // eventos del menu lateral
+        // Menú lateral: Dashboard
         private void OnMenuDashboardClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Dashboard");
         }
 
+        // Menú lateral: Tickets
         private void OnMenuTicketsClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Tickets");
         }
 
+        // Menú lateral: Clientes
         private void OnMenuClientesClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Clientes");
         }
 
+        // Menú lateral: Inventario
         private void OnMenuInventarioClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Inventario");
         }
 
+        // Menú lateral: Garantías
         private void OnMenuGarantiasClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Garantias");
         }
 
+        // Menú lateral: Reportes
         private void OnMenuReportesClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Reportes");
         }
 
+        // Menú lateral: Configuración
         private void OnMenuConfiguracionClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             DisplayAlert("Configuracion", "Navegando a configuracion...", "OK");
         }
 
+        // Menú lateral: Cerrar sesión con confirmación
         private async void OnMenuCerrarSesionClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
@@ -122,211 +241,25 @@ namespace KSM_ULS.Pages
             }
         }
 
-        // metodo para cargar subvistas en el contentview host
+        // Carga una subvista en el ContentView host según el nombre
         private void LoadSubView(string viewName)
         {
             try
             {
                 Host.Content = null;
-
+                SetActiveView(viewName);
+                // Selecciona la vista a mostrar según el nombre
                 View subView = viewName switch
                 {
-                    "Dashboard" => CreateDashboardView(),
-                    "Tickets" => CreateTicketsView(),
-                    "Clientes" => CreateClientesView(),
-                    "Inventario" => CreateInventarioView(),
-                    "Garantias" => CreateGarantiasView(),
-                    "Reportes" => CreateReportesView(),
-                    _ => CreateDefaultView()
+                    "Dashboard" => new Views.DashOverviewView(),
+                    "Clientes" => new Views.DashClientsView(),
+                    _ => null
                 };
-
                 Host.Content = subView;
-                DisplayAlert("Vista Cargada", $"Se ha cargado la vista: {viewName}", "OK");
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 DisplayAlert("Error", $"Error al cargar la vista: {ex.Message}", "OK");
             }
-        }
-
-        // metodos para crear las diferentes vistas
-        private View CreateDashboardView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista de Dashboard",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Aqui se mostraria el dashboard principal.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        private View CreateTicketsView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista de Tickets",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Aqui se mostraria la lista de tickets.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        private View CreateClientesView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista de Clientes",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Aqui se mostraria la lista de clientes.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        private View CreateInventarioView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista de Inventario",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Aqui se mostraria el inventario de productos.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        private View CreateGarantiasView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista de Garantias",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Aqui se mostraran las garantias.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        private View CreateReportesView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista de Reportes",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Aqui se mostraran los reportes del sistema.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        private View CreateDefaultView()
-        {
-            return new StackLayout
-            {
-                Padding = new Thickness(20),
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Vista por Defecto",
-                        FontSize = 18,
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.FromArgb("#2C3E50")
-                    },
-                    new Label
-                    {
-                        Text = "Selecciona una opcion del menu para ver el contenido.",
-                        FontSize = 14,
-                        TextColor = Colors.Gray
-                    }
-                }
-            };
-        }
-
-        // metodos originales mantenidos para compatibilidad
-        private void OnResumenClicked(object sender, EventArgs e)
-        {
-            LoadSubView("Dashboard");
-        }
-
-        private void OnClientesClicked(object sender, EventArgs e)
-        {
-            LoadSubView("Clientes");
         }
     }
 }
