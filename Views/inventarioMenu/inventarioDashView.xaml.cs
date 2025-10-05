@@ -8,7 +8,7 @@ public partial class InventarioDashView : ContentView
 	public InventarioDashView()
 	{
         InitializeComponent();
-        inventoryList.ItemsSource = new List<Recurso> {
+        InventoryList.ItemsSource = new List<Recurso> {
 			new Recurso("patata"),
             new Recurso("cebolla"),
             new Recurso("lechuga"),

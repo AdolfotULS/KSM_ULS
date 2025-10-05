@@ -16,7 +16,7 @@
                 
                     <CollectionView.ItemTemplate >
                         <DataTemplate >
-                            <local:inventarioCardView Padding="10"></local:inventarioCardView>
+                        <local:InventarioCardView Padding="10"></local:InventarioCardView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 

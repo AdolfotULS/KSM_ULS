@@ -20,7 +20,7 @@ public partial class InventarioCardView : ContentView
 	void OnClickerAddButton( object sender, EventArgs e) {
 		//añade al stock
 	}
-	void onClickedMinustButton( object sender, EventArgs e ) {
+	void OnClickedMinustButton( object sender, EventArgs e ) {
 		//resta al stock
 	}
 	async void OnClickedEditButton( object sender, EventArgs e ) {
