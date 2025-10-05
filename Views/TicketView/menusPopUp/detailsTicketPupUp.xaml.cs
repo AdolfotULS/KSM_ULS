@@ -3,19 +3,19 @@ using System.ComponentModel;
 
 namespace KSM_ULS.Views.TicketView.menusPopUp;
 
-public partial class detailsTicketPupUp : Popup, INotifyPropertyChanged
+public partial class DetailsTicketPupUp : Popup, INotifyPropertyChanged
 {
 
 
     private string clientName { get; set; }
-	public detailsTicketPupUp()
+	public DetailsTicketPupUp()
 	{
 		InitializeComponent();
         
         
 	}
 
-    void onClickedClosePopUp(object sender, EventArgs e)
+    void OnClickedClosePopUp(object sender, EventArgs e)
     {
         this.CloseAsync();
     }

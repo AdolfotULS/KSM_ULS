@@ -2,16 +2,16 @@ using CommunityToolkit.Maui.Views;
 
 namespace KSM_ULS.Views.TicketView.menusPopUp;
 
-public partial class editTicketPupUp : Popup
+public partial class EditTicketPupUp : Popup
 {
-	public editTicketPupUp()
+	public EditTicketPupUp()
 	{
 		InitializeComponent();
 	}
-	void onClickedClosePopUp(object sender, EventArgs e)
+	void OnClickedClosePopUp(object sender, EventArgs e)
 	{
 		this.CloseAsync();
 	}
-	void onClickedEditTicket(object sender, EventArgs e){
+	void OnClickedEditTicket(object sender, EventArgs e){
 	}
 }

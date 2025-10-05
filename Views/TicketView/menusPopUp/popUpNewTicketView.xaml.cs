@@ -2,17 +2,17 @@ using CommunityToolkit.Maui.Views;
 
 namespace KSM_ULS.Views.TicketView;
 
-public partial class popUpNewTicketView : Popup
+public partial class PopUpNewTicketView : Popup
 {
-    public popUpNewTicketView()
+    public PopUpNewTicketView()
     {
         InitializeComponent();
     }
-    void onClickedClosePopUp(object sender, EventArgs e)
+    void OnClickedClosePopUp(object sender, EventArgs e)
     {
         this.CloseAsync();
     }
-    void onClickedCreateTicket(object sender, EventArgs e)
+    void OnClickedCreateTicket(object sender, EventArgs e)
     {
 
     }

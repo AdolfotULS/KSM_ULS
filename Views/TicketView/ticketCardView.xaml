@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KSM_ULS.Views.TicketView.ticketCardView">
+             x:Class="KSM_ULS.Views.TicketView.TicketCardView">
     <VerticalStackLayout>
         <HorizontalStackLayout Margin="5" Spacing="30">
         <Label 
@@ -10,10 +10,10 @@
             HorizontalOptions="Start" />
         <Label x:Name="ticketStateLabel" Text="estado Ticket*" VerticalOptions="Center"></Label>
         <Label x:Name="ticketPriorityLabel" Text="prioridad Ticket*" VerticalOptions="Center"></Label>
-        <Button x:Name="ticketDetailButton" Text="Detales" CornerRadius="10" Clicked="onClickerDetailButton"  ></Button>
-        <Button x:Name="ticketEditionButton" Text="Editar" CornerRadius="10" Clicked="onClickedEditTicketButton"  ></Button>
+        <Button x:Name="ticketDetailButton" Text="Detales" CornerRadius="10" Clicked="OnClickerDetailButton"  ></Button>
+        <Button x:Name="ticketEditionButton" Text="Editar" CornerRadius="10" Clicked="OnClickedEditTicketButton"  ></Button>
             
-        <Picker x:Name="ticketStatePicker" Title="Estado" SelectedIndexChanged="onPickerSelectionStates" >
+        <Picker x:Name="ticketStatePicker" Title="Estado" SelectedIndexChanged="OnPickerSelectionStates" >
                    <Picker.ItemsSource>
                 <x:String>Finalizado</x:String>
                 <x:String>Pendiente</x:String>

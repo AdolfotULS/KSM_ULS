@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KSM_ULS.Model
 {
-    public class progressNotes
+    public class ProgressNotes
     {
         //esta clase es temporal , a futuro seria para archivar apropiadamente las notas de caso de cada ticket
         //ie: dia 1, ta sucio el procesador, dia2: dios santo cucaracha, dia3: cierre de ticket tras denunciar al cliente por atentado a mi salud
@@ -14,6 +14,6 @@ namespace KSM_ULS.Model
         public string[] notes;
         public string date;
         public string author;
-        public progressNotes() { }
+        public ProgressNotes() { }
     }
 }

@@ -10,16 +10,16 @@ namespace KSM_ULS.Model
     public class Ticket //TODO revisar permisos de sistemas
     {
         public int Id { get; set; }
-        public string clientName { get; set; } //TODO transform this in a tecnitian class
-        public string tecnitianNames { get; set; } //TODO transform this in a tecnitian class + deberia ser una lista, varios tecnicos mismo ticket
-        public string limitDate { get; set; }
-        public string description { get; set; }
+        public string ClientName { get; set; } //TODO transform this in a tecnitian class
+        public string TecnitianNames { get; set; } //TODO transform this in a tecnitian class + deberia ser una lista, varios tecnicos mismo ticket
+        public string LimitDate { get; set; }
+        public string Description { get; set; }
 
-        public string creationDate { get; set; }
-        public int expectedRemuneration = 0;
-        protected int ticketState = 0; //0 inactivo, 1 en proceso, 2 finalizado TODO checkear esta logica
+        public string CreationDate { get; set; }
+        public int ExpectedRemuneration = 0;
+        protected int TicketState = 0; //0 inactivo, 1 en proceso, 2 finalizado TODO checkear esta logica
 
-        public progressNotes[] tecnitianNotes { get; set; }//notas del ticket que tenga registradas, puedes verlo en detalles
+        public ProgressNotes[] TecnitianNotes { get; set; }//notas del ticket que tenga registradas, puedes verlo en detalles
 
 
         //optional
@@ -29,10 +29,10 @@ namespace KSM_ULS.Model
         public Ticket(int idIn, string clientData, string tecnitianInCharge, string limitDate = "0/0/0")
         {
             this.Id = idIn;
-            this.clientName = clientData;
-            this.tecnitianNames = tecnitianInCharge;
-            this.limitDate = limitDate;
-            this.creationDate = "0/0/0"; //TODO , take date automaticamente
+            this.ClientName = clientData;
+            this.TecnitianNames = tecnitianInCharge;
+            this.LimitDate = limitDate;
+            this.CreationDate = "0/0/0"; //TODO , take date automaticamente
         }
         
 
@@ -45,36 +45,36 @@ namespace KSM_ULS.Model
         /// <param name="setState"> | "finalized"--> ticket.ticketState = 2 </param>
         /// default --> ticket.ticketState = 0 
         /// </summary>        
-        public void changeStateTicket(string setState) 
+        public void ChangeStateTicket(string setState) 
         {
             
 
             switch (setState)
             {
                 case "incative":
-                    this.ticketState = 0;
+                    this.TicketState = 0;
                     break;
                 case "in progress":
-                    this.ticketState = 1;
+                    this.TicketState = 1;
                     break;
                 case "finalized":
-                    this.ticketState = 2;
+                    this.TicketState = 2;
                     break;
-                default: this.ticketState = 0; break;
+                default: this.TicketState = 0; break;
             }
             
         }
-        public int getState() { return this.ticketState; }
-        public void changeTecnitianInCharge(string[] tecnitianNames) //TODO adapt to class Tecnitian
+        public int GetState() { return this.TicketState; }
+        public void ChangeTecnitianInCharge(string[] tecnitianNames) //TODO adapt to class Tecnitian
         {
             //sets the 1 or multiple tecnitian in charge of this ticket
         }
-        public void changeLimitDate(string newLimitDate) { 
+        public void ChangeLimitDate(string newLimitDate) { 
             //call to set new limit date of ticket, in case somethign happens like client giving more time
-            this.limitDate = newLimitDate;
+            this.LimitDate = newLimitDate;
         }
 
-        public void addNote (string noteText, string author)//author seria el tecnico que lo escribio, puede rescatar datos de la cuenta actual
+        public void AddNote (string noteText, string author)//author seria el tecnico que lo escribio, puede rescatar datos de la cuenta actual
         {
             //adds note of case to ticket + optional
         }
