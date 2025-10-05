@@ -99,16 +99,16 @@
 	  <MauiXaml Update="Views\ReportesFinancieroView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ReportesGastosView.xaml">
+	  <MauiXaml Update="Views\Reportes\ReportesGastosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ReportesOperacionesView.xaml">
+	  <MauiXaml Update="Views\Reportes\ReportesOperacionesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ReportesRendimientoView.xaml">
+	  <MauiXaml Update="Views\Reportes\ReportesRendimientoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ReportesView.xaml">
+	  <MauiXaml Update="Views\Reportes\ReportesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
