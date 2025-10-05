@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KSM_ULS.Views.TicketView.TicketCardView">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Margin="5" Spacing="30">
+        <Label 
+            Text="Nombre Ticket*" x:Name="ticketName"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" />
+        <Label x:Name="TicketStateLabel" Text="estado Ticket*" VerticalOptions="Center"></Label>
+        <Label x:Name="TicketPriorityLabel" Text="prioridad Ticket*" VerticalOptions="Center"></Label>
+        <Button x:Name="TicketDetailButton" Text="Detales" CornerRadius="10" Clicked="OnClickerDetailButton"  ></Button>
+        <Button x:Name="TicketEditionButton" Text="Editar" CornerRadius="10" Clicked="OnClickedEditTicketButton"  ></Button>
+            
+        <Picker x:Name="TicketStatePicker" Title="Estado" SelectedIndexChanged="OnPickerSelectionStates" >
+                   <Picker.ItemsSource>
+                <x:String>Finalizado</x:String>
+                <x:String>Pendiente</x:String>
+                <x:String>En Proceso</x:String> 
+            </Picker.ItemsSource>
+        </Picker>
+        </HorizontalStackLayout>
+        <Label x:Name="TicketDescription" Text="Descripcion de ticket breve" TextColor="Gray" FontSize="13"></Label>
+        <HorizontalStackLayout Margin="3" Spacing="7">
+            <Label x:Name="TicketClientName" Text="client name*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="TicketTecnitianName" Text="teco boy*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="TicketLimitDate" Text="0/0/0" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="TickeAmountRemuneration" Text="0 money*" TextColor="LightGray" FontSize="10"></Label>
+            
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

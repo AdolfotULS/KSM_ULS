@@ -104,6 +104,16 @@
 	  <MauiXaml Update="Views\DashOverviewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\TicketView\menusPopUp\detailsTicketPupUp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TicketView\menusPopUp\editTicketPupUp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TicketView\ticketCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TicketView\TicketOverView.xaml">
 	  <MauiXaml Update="Views\Reportes\ReportesFinancieroView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

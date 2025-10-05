@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KSM_ULS.Views.TicketView.menusPopUp.DetailsTicketPupUp"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label HorizontalOptions="Start" x:Name="TicketNameLabel" Text="Ticket Name place Holder*"></Label>
+            <Button HorizontalOptions="End" Text="cerrar" Clicked="OnClickedClosePopUp"></Button>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Column="3">
+            <HorizontalStackLayout>
+                <Frame BorderColor="Gray">
+            <Label x:Name="ClientNameLabel" Text="client placeHolder*"></Label>
+            </Frame>
+                <Frame BorderColor="Gray">
+                <Label x:Name="TecnitiansLabel" Text="tecnitian placeholder*"></Label>
+            </Frame>
+
+                <Frame BorderColor="Gray">            
+                <Label x:Name="LimitDateLabel" Text="0/0/0"></Label>
+            </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Frame BorderColor="Gray">
+                    <Label x:Name="IdNameLabel" Text="id placeHolder*"></Label>
+                </Frame>
+                <Frame BorderColor="Gray">
+                    <Label x:Name="ExtraLabel" Text="extra label*"></Label>
+                </Frame>
+
+                <Frame BorderColor="Gray">
+                    <Label x:Name="EmisionDateLabel" Text="0/0/0 *"></Label>
+                </Frame>
+            </HorizontalStackLayout>
+       
+        </VerticalStackLayout>
+        <Frame BorderColor="Gray" >
+            <Entry IsReadOnly="True"  x:Name="TextBlockMainDescription"  Text="this is your description yeey" >
+            </Entry>
+        </Frame>
+        <!--aqui lista de comentarios respectivo TODO-->
+        
+    </VerticalStackLayout>
+    
+</toolkit:Popup>
