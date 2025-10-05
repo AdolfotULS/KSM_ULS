@@ -3,12 +3,132 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KSM_ULS.Views.DashOverviewView">
     <VerticalStackLayout Spacing="12">
-        <Label Text="Resumen general" FontAttributes="Bold" FontSize="18" />
-        <Frame>
-            <VerticalStackLayout>
-                <Label Text="KPI 1: 123" />
-                <Label Text="KPI 2: 456" />
-            </VerticalStackLayout>
-        </Frame>
+        <!-- tarjeta de bienvenida -->
+                <Frame BackgroundColor="White" 
+                       HasShadow="True" 
+                       CornerRadius="10" 
+                       Padding="20">
+                    <StackLayout>
+                        <Label Text="Bienvenido al Dashboard"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource SecondaryColor}" />
+                        <Label Text="Gestiona tu inventario de manera eficiente"
+                               FontSize="14"
+                               TextColor="Gray"
+                               Margin="0,5,0,0" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- estadisticas -->
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+
+                    <Frame Grid.Row="0" Grid.Column="0"
+                           BackgroundColor="{StaticResource PrimaryColor}"
+                           HasShadow="True"
+                           CornerRadius="10"
+                           Padding="15">
+                        <StackLayout>
+                            <Label Text="📦" FontSize="24" HorizontalOptions="Center" />
+                            <Label Text="1,234" 
+                                   FontSize="24" 
+                                   FontAttributes="Bold" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                            <Label Text="Productos" 
+                                   FontSize="12" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1"
+                           BackgroundColor="{StaticResource AccentColor}"
+                           HasShadow="True"
+                           CornerRadius="10"
+                           Padding="15">
+                        <StackLayout>
+                            <Label Text="📋" FontSize="24" HorizontalOptions="Center" />
+                            <Label Text="56" 
+                                   FontSize="24" 
+                                   FontAttributes="Bold" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                            <Label Text="Categorías" 
+                                   FontSize="12" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="0"
+                           BackgroundColor="#FF9800"
+                           HasShadow="True"
+                           CornerRadius="10"
+                           Padding="15">
+                        <StackLayout>
+                            <Label Text="⚠️" FontSize="24" HorizontalOptions="Center" />
+                            <Label Text="23" 
+                                   FontSize="24" 
+                                   FontAttributes="Bold" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                            <Label Text="Stock Bajo" 
+                                   FontSize="12" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1"
+                           BackgroundColor="#4CAF50"
+                           HasShadow="True"
+                           CornerRadius="10"
+                           Padding="15">
+                        <StackLayout>
+                            <Label Text="💰" FontSize="24" HorizontalOptions="Center" />
+                            <Label Text="$89K" 
+                                   FontSize="24" 
+                                   FontAttributes="Bold" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                            <Label Text="Valor Total" 
+                                   FontSize="12" 
+                                   TextColor="White" 
+                                   HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- acciones rapidas -->
+                <Frame BackgroundColor="White" 
+                       HasShadow="True" 
+                       CornerRadius="10" 
+                       Padding="20">
+                    <StackLayout>
+                        <Label Text="Acciones Rápidas"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource SecondaryColor}"
+                               Margin="0,0,0,15" />
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                            <Button Grid.Column="0"
+                                    Text="Agregar Producto"
+                                    BackgroundColor="{StaticResource PrimaryColor}"
+                                    TextColor="White"
+                                    CornerRadius="8"
+                                    Clicked="OnAgregarProductoClicked" />
+
+                            <Button Grid.Column="1"
+                                    Text="Ver Reportes"
+                                    BackgroundColor="{StaticResource SecondaryColor}"
+                                    TextColor="White"
+                                    CornerRadius="8"
+                                    Clicked="OnVerReportesClicked" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+
     </VerticalStackLayout>
 </ContentView>
