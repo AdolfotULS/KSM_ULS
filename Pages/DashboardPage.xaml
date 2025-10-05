@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="KSM_ULS.Pages.DashboardPage"
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="KSM_ULS.Pages.DashboardPage" 
     Title="Krakenware"
     BackgroundColor="White">
 
-	<ContentPage.Resources>
-		<ResourceDictionary>
-			<Color x:Key="PrimaryColor">#4A90E2</Color>
-			<Color x:Key="SecondaryColor">#2C3E50</Color>
-			<Color x:Key="AccentColor">#E74C3C</Color>
-			<Color x:Key="BackgroundColor">#FFFFFF</Color>
-		</ResourceDictionary>
-	</ContentPage.Resources>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#4A90E2</Color>
+            <Color x:Key="SecondaryColor">#2C3E50</Color>
+            <Color x:Key="AccentColor">#E74C3C</Color>
+            <Color x:Key="BackgroundColor">#FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="Auto" />
-		</Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-		<!-- encabezado superior -->
-		<Grid Grid.Row="0" BackgroundColor="{StaticResource SecondaryColor}" Padding="16,10">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="Auto" />
-			</Grid.ColumnDefinitions>
+        <!-- encabezado superior -->
+        <Grid Grid.Row="0" BackgroundColor="{StaticResource SecondaryColor}" Padding="16,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-			<!-- boton menu -->
-			<Button Grid.Column="0"
+            <!-- boton menu -->
+            <Button Grid.Column="0"
                     x:Name="MenuButton"
                     Text="☰"
                     FontSize="20"
@@ -42,8 +42,8 @@
                     HeightRequest="40"
                     Clicked="OnMenuButtonClicked" />
 
-			<!-- icono k -->
-			<Frame Grid.Column="1"
+            <!-- icono k -->
+            <Frame Grid.Column="1"
                    BackgroundColor="{StaticResource PrimaryColor}"
                    CornerRadius="20"
                    WidthRequest="40"
@@ -51,27 +51,27 @@
                    HasShadow="False"
                    Padding="0"
                    Margin="10,0,0,0">
-				<Label Text="K"
+                <Label Text="K" 
                        FontSize="20"
                        FontAttributes="Bold"
                        TextColor="White"
                        HorizontalOptions="Center"
                        VerticalOptions="Center" />
-			</Frame>
+            </Frame>
 
-			<!-- titulo -->
-			<StackLayout Grid.Column="2" VerticalOptions="Center" Margin="15,0,0,0">
-				<Label Text="Krakenware"
+            <!-- titulo -->
+            <StackLayout Grid.Column="2" VerticalOptions="Center" Margin="15,0,0,0">
+                <Label Text="Krakenware"
                        FontSize="18"
                        FontAttributes="Bold"
                        TextColor="White" />
-				<Label Text="Inventario"
+                <Label Text="Inventario"
                        FontSize="14"
                        TextColor="LightGray" />
-			</StackLayout>
+            </StackLayout>
 
-			<!-- boton opciones -->
-			<Button Grid.Column="3"
+            <!-- boton opciones -->
+            <Button Grid.Column="3"
                     Text="⋮"
                     FontSize="20"
                     BackgroundColor="Transparent"
@@ -79,55 +79,55 @@
                     WidthRequest="40"
                     HeightRequest="40"
                     Clicked="OnOptionsButtonClicked" />
-		</Grid>
+        </Grid>
 
-		<!-- contenido principal -->
-		<ScrollView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}">
-			<StackLayout Padding="20" Spacing="20">
-				<!-- host de la subvista -->
-				<ContentView x:Name="Host" />
+        <!-- contenido principal -->
+        <ScrollView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}">
+            <StackLayout Padding="20" Spacing="20">
+                <!-- host de la subvista -->
+                <ContentView x:Name="Host" />
 
-			</StackLayout>
-		</ScrollView>
+            </StackLayout>
+        </ScrollView>
 
-		<!-- barra de navegacion inferior -->
-		<Grid Grid.Row="2"
-              BackgroundColor="White"
+        <!-- barra de navegacion inferior -->
+        <Grid Grid.Row="2" 
+              BackgroundColor="White" 
               HeightRequest="60">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
-			</Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-			<!-- dashboard -->
-			<Button x:Name="BottomNavDashboardButton" Grid.Column="0"
+            <!-- dashboard -->
+            <Button x:Name="BottomNavDashboardButton" Grid.Column="0"
                     Text="📊 Dashboard"
                     FontSize="10"
                     BackgroundColor="Transparent"
                     TextColor="Gray"
                     Clicked="OnBottomNavDashboardClicked" />
 
-			<!-- tickets -->
-			<Button x:Name="BottomNavTicketsButton" Grid.Column="1"
+            <!-- tickets -->
+            <Button x:Name="BottomNavTicketsButton" Grid.Column="1"
                     Text="🎫 Tickets"
                     FontSize="10"
                     BackgroundColor="Transparent"
                     TextColor="Gray"
                     Clicked="OnBottomNavTicketsClicked" />
 
-			<!-- clientes -->
-			<Button x:Name="BottomNavClientesButton" Grid.Column="2"
+            <!-- clientes -->
+            <Button x:Name="BottomNavClientesButton" Grid.Column="2"
                     Text="👥 Clientes"
                     FontSize="10"
                     BackgroundColor="Transparent"
                     TextColor="Gray"
                     Clicked="OnBottomNavClientesClicked" />
 
-			<!-- inventario (activo) -->
-			<Button x:Name="BottomNavInventarioButton" Grid.Column="3"
+            <!-- inventario (activo) -->
+            <Button x:Name="BottomNavInventarioButton" Grid.Column="3"
                     Text="📦 Inventario"
                     FontSize="10"
                     BackgroundColor="#E3F2FD"
@@ -135,22 +135,22 @@
                     FontAttributes="Bold"
                     Clicked="OnBottomNavInventarioClicked" />
 
-			<!-- reportes -->
-			<Button x:Name="BottomNavReportesButton" Grid.Column="4"
+            <!-- reportes -->
+            <Button x:Name="BottomNavReportesButton" Grid.Column="4"
                     Text="📈 Reportes"
                     FontSize="10"
                     BackgroundColor="Transparent"
                     TextColor="Gray"
                     Clicked="OnBottomNavReportesClicked" />
-		</Grid>
+        </Grid>
 
-		<!-- menu lateral overlay -->
-		<Grid x:Name="MenuOverlay"
+        <!-- menu lateral overlay -->
+        <Grid x:Name="MenuOverlay" 
               Grid.RowSpan="3"
               BackgroundColor="#80000000"
               IsVisible="False">
 
-			<Frame WidthRequest="280"
+            <Frame WidthRequest="280"
                    BackgroundColor="White"
                    HorizontalOptions="Start"
                    VerticalOptions="FillAndExpand"
@@ -158,39 +158,39 @@
                    CornerRadius="0"
                    Padding="0">
 
-				<ScrollView>
-					<StackLayout Spacing="0">
+                <ScrollView>
+                    <StackLayout Spacing="0">
 
-						<!-- encabezado del menu -->
-						<Grid BackgroundColor="White" Padding="20,40,20,20">
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="60" />
-								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="40" />
-							</Grid.ColumnDefinitions>
+                        <!-- encabezado del menu -->
+                        <Grid BackgroundColor="White" Padding="20,40,20,20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
 
-							<!-- icono k -->
-							<Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                            <!-- icono k -->
+                            <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                                    BackgroundColor="{StaticResource PrimaryColor}"
                                    CornerRadius="30"
                                    WidthRequest="60"
                                    HeightRequest="60"
                                    HasShadow="False"
                                    Padding="0">
-								<Label Text="K"
+                                <Label Text="K" 
                                        FontSize="30"
                                        FontAttributes="Bold"
                                        TextColor="White"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center" />
-							</Frame>
+                            </Frame>
 
-							<!-- titulo -->
-							<Label Grid.Row="0" Grid.Column="1"
+                            <!-- titulo -->
+                            <Label Grid.Row="0" Grid.Column="1"
                                    Text="Krakenware"
                                    FontSize="18"
                                    FontAttributes="Bold"
@@ -198,16 +198,16 @@
                                    VerticalOptions="End"
                                    Margin="15,0,0,0" />
 
-							<!-- subtitulo -->
-							<Label Grid.Row="1" Grid.Column="1"
+                            <!-- subtitulo -->
+                            <Label Grid.Row="1" Grid.Column="1"
                                    Text="Gestión Técnica"
                                    FontSize="14"
                                    TextColor="Gray"
                                    VerticalOptions="Start"
                                    Margin="15,0,0,0" />
 
-							<!-- boton cerrar -->
-							<Button Grid.Row="0" Grid.Column="2"
+                            <!-- boton cerrar -->
+                            <Button Grid.Row="0" Grid.Column="2"
                                     Text="✕"
                                     FontSize="16"
                                     BackgroundColor="Transparent"
@@ -215,76 +215,76 @@
                                     WidthRequest="30"
                                     HeightRequest="30"
                                     Clicked="OnCloseMenuClicked" />
-						</Grid>
+                        </Grid>
 
-						<!-- separador -->
-						<BoxView BackgroundColor="LightGray" HeightRequest="1" />
+                        <!-- separador -->
+                        <BoxView BackgroundColor="LightGray" HeightRequest="1" />
 
-						<!-- modulos principales -->
-						<Label Text="Módulos Principales"
+                        <!-- modulos principales -->
+                        <Label Text="Módulos Principales"
                                FontSize="12"
                                FontAttributes="Bold"
                                TextColor="Gray"
                                Margin="20,20,20,10" />
 
-						<!-- elementos del menu -->
-						<Button x:Name="MenuDashboardButton" Text="📊 Dashboard"
+                        <!-- elementos del menu -->
+                        <Button x:Name="MenuDashboardButton" Text="📊 Dashboard"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuDashboardClicked" />
 
-						<Button x:Name="MenuTicketsButton" Text="🎫 Tickets"
+                        <Button x:Name="MenuTicketsButton" Text="🎫 Tickets"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuTicketsClicked" />
 
-						<Button x:Name="MenuClientesButton" Text="👥 Clientes"
+                        <Button x:Name="MenuClientesButton" Text="👥 Clientes"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuClientesClicked" />
 
-						<Button x:Name="MenuInventarioButton" Text="📦 Inventario"
+                        <Button x:Name="MenuInventarioButton" Text="📦 Inventario"
                                 BackgroundColor="#E3F2FD"
                                 TextColor="{StaticResource PrimaryColor}"
                                 FontAttributes="Bold"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuInventarioClicked" />
 
-						<Button x:Name="MenuGarantiasButton" Text="🛡️ Garantías"
+                        <Button x:Name="MenuGarantiasButton" Text="🛡️ Garantías"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuGarantiasClicked" />
 
-						<Button x:Name="MenuReportesButton" Text="📈 Reportes"
+                        <Button x:Name="MenuReportesButton" Text="📈 Reportes"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuReportesClicked" />
 
-						<!-- espaciador -->
-						<BoxView HeightRequest="20" BackgroundColor="Transparent" />
+                        <!-- espaciador -->
+                        <BoxView HeightRequest="20" BackgroundColor="Transparent" />
 
-						<!-- configuracion -->
-						<Button x:Name="MenuConfiguracionButton" Text="⚙️ Configuración"
+                        <!-- configuracion -->
+                        <Button x:Name="MenuConfiguracionButton" Text="⚙️ Configuración"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource SecondaryColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuConfiguracionClicked" />
 
-						<!-- cerrar sesion -->
-						<Button x:Name="MenuCerrarSesionButton" Text="🚪 Cerrar sesión"
+                        <!-- cerrar sesion -->
+                        <Button x:Name="MenuCerrarSesionButton" Text="🚪 Cerrar sesión"
                                 BackgroundColor="Transparent"
                                 TextColor="{StaticResource AccentColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Clicked="OnMenuCerrarSesionClicked" />
 
-					</StackLayout>
-				</ScrollView>
-			</Frame>
-		</Grid>
-	</Grid>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </Grid>
+    </Grid>
 </ContentPage>
