@@ -257,6 +257,7 @@ namespace KSM_ULS.Pages
                     "Dashboard" => new Views.DashOverviewView(),
                     "Clientes" => new Views.DashClientsView(),
                     "Reportes" => new Views.ReportesView(),
+                    "Garantias" => new Views.GarantiasView(),
                     _ => new Label
                     {
                         Text = "Vista no implementada",
