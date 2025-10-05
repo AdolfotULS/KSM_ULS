@@ -253,6 +253,7 @@ namespace KSM_ULS.Pages
                 {
                     "Dashboard" => new Views.DashOverviewView(),
                     "Clientes" => new Views.DashClientsView(),
+                    "Reportes" => new Views.ReportesView(),
                     /*"Tickets" => new Views.DashTicketsView(),
                     "Inventario" => new Views.DashInventoryView(),
                     "Reportes" => new Views.DashReportsView(),
