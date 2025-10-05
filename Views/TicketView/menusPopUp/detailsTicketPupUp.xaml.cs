@@ -7,7 +7,7 @@ public partial class DetailsTicketPupUp : Popup, INotifyPropertyChanged
 {
 
 
-    private string clientName { get; set; }
+    private string ClientName { get; set; }
 	public DetailsTicketPupUp()
 	{
 		InitializeComponent();

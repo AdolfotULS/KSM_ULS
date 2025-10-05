@@ -17,10 +17,10 @@
         <SearchBar x:Name ="searchbarTicketQuery" Text="" Placeholder="Especificaciones Ticket" Background="White" TextChanged="OnChangeTextSearchBarTickets"></SearchBar>
         
             <Border Margin="5" Padding="2">
-            <CollectionView x:Name="ticketList" ItemsLayout="VerticalList" Margin="5" HeightRequest="300">
+            <CollectionView x:Name="TicketList" ItemsLayout="VerticalList" Margin="5" HeightRequest="300">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <local:ticketCardView></local:ticketCardView>
+                            <local:TicketCardView></local:TicketCardView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
