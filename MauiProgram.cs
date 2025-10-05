@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Hosting;
-using Microcharts.Maui; // ✅ Este sí debe existir en tu versión
+using Microcharts.Maui;
+using CommunityToolkit.Maui; // ✅ Este sí debe existir en tu versión
 
 namespace KSM_ULS
 {
@@ -12,6 +13,7 @@ namespace KSM_ULS
 
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit() // <-- Chain this directly after .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
