@@ -1,11 +1,207 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KSM_ULS.Views.DashClientsView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="KSM_ULS.Views.DashClientsView"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="20">
+
+            <!-- Header Section -->
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Grid.Column="0"
+                                     Spacing="5">
+                    <Label Text="Gestión de Clientes"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="#333333"/>
+                    <Label Text="Administra la información de clientes y empresas"
+                           FontSize="14"
+                           TextColor="#666666"/>
+                </VerticalStackLayout>
+
+                <Button Grid.Column="1"
+                        Text="+ Nuevo Cliente"
+                        BackgroundColor="#0066FF"
+                        TextColor="White"
+                        CornerRadius="8"
+                        Padding="20,10"
+                        FontAttributes="Bold"
+                        Clicked="OnNewClientClicked"
+                        VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Search and Filter Section -->
+            <Frame CornerRadius="12"
+                   BackgroundColor="White"
+                   Padding="0"
+                   HasShadow="False"
+                   BorderColor="#E0E0E0">
+                <Grid ColumnDefinitions="*,Auto"
+                      Padding="10">
+                    <SearchBar Grid.Column="0"
+                               x:Name="SearchBar"
+                               Placeholder="Buscar por nombre, email o contacto..."
+                               TextChanged="OnSearchTextChanged"
+                               BackgroundColor="Transparent"
+                               PlaceholderColor="#999999"/>
+
+                    <Picker Grid.Column="1"
+                            x:Name="FilterPicker"
+                            Title="Todos los tipos"
+                            WidthRequest="150"
+                            SelectedIndexChanged="OnFilterChanged"
+                            BackgroundColor="Transparent">
+                        <Picker.Items>
+                            <x:String>Todos</x:String>
+                            <x:String>Empresa</x:String>
+                            <x:String>Persona</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+            </Frame>
+
+            <!-- Clients Grid -->
+            <CollectionView x:Name="ClientsCollectionView"
+                            ItemsSource="{Binding FilteredClients}"
+                            SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="15"
+                                     VerticalItemSpacing="15"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="12"
+                               BackgroundColor="White"
+                               Padding="16"
+                               HasShadow="True">
+                            <Grid RowDefinitions="Auto,*,Auto"
+                                  RowSpacing="12">
+
+                                <!-- Header: Icon and Badges -->
+                                <Grid Grid.Row="0"
+                                      ColumnDefinitions="40,*,Auto">
+                                    <!-- Icon -->
+                                    <Frame Grid.Column="0"
+                                           CornerRadius="20"
+                                           BackgroundColor="#E3F2FD"
+                                           Padding="8"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           HasShadow="False">
+                                        <Label Text="{Binding IconText}"
+                                               FontSize="18"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               TextColor="#0066FF"/>
+                                    </Frame>
+
+                                    <!-- Badges -->
+                                    <HorizontalStackLayout Grid.Column="2"
+                                                           Spacing="5">
+                                        <Frame BackgroundColor="{Binding TypeBadgeColor}"
+                                               Padding="8,4"
+                                               CornerRadius="4"
+                                               HasShadow="False">
+                                            <Label Text="{Binding Type}"
+                                                   FontSize="10"
+                                                   TextColor="#333333"/>
+                                        </Frame>
+                                        <Frame BackgroundColor="{Binding NotificationBadgeColor}"
+                                               Padding="8,4"
+                                               CornerRadius="4"
+                                               HasShadow="False">
+                                            <Label Text="{Binding NotificationPreference}"
+                                                   FontSize="10"
+                                                   TextColor="#333333"/>
+                                        </Frame>
+                                    </HorizontalStackLayout>
+                                </Grid>
+
+                                <!-- Body: Client Information -->
+                                <VerticalStackLayout Grid.Row="1"
+                                                     Spacing="8">
+                                    <Label Text="{Binding Id}"
+                                           FontSize="12"
+                                           TextColor="#999999"/>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="👤"
+                                               FontSize="14"/>
+                                        <Label Text="{Binding ContactName}"
+                                               FontSize="13"
+                                               TextColor="#333333"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="✉️"
+                                               FontSize="14"/>
+                                        <Label Text="{Binding Email}"
+                                               FontSize="12"
+                                               TextColor="#666666"
+                                               LineBreakMode="TailTruncation"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="📞"
+                                               FontSize="14"/>
+                                        <Label Text="{Binding Phone}"
+                                               FontSize="12"
+                                               TextColor="#666666"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="📍"
+                                               FontSize="14"/>
+                                        <Label Text="{Binding Address}"
+                                               FontSize="12"
+                                               TextColor="#666666"
+                                               LineBreakMode="TailTruncation"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+
+                                <!-- Footer: Date, Tickets, Edit Button -->
+                                <Grid Grid.Row="2"
+                                      ColumnDefinitions="*,Auto,Auto"
+                                      ColumnSpacing="10">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding RegisterDateFormatted}"
+                                           FontSize="11"
+                                           TextColor="#999999"
+                                           VerticalOptions="Center"/>
+
+                                    <Frame Grid.Column="1"
+                                           BackgroundColor="{Binding TicketsBadgeColor}"
+                                           Padding="6,3"
+                                           CornerRadius="4"
+                                           HasShadow="False"
+                                           VerticalOptions="Center">
+                                        <Label Text="{Binding TicketsText}"
+                                               FontSize="10"
+                                               TextColor="White"/>
+                                    </Frame>
+
+                                    <Button Grid.Column="2"
+                                            Text="Editar"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#0066FF"
+                                            FontSize="12"
+                                            Padding="0"
+                                            Clicked="OnEditClientClicked"
+                                            CommandParameter="{Binding .}"/>
+                                </Grid>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentView>
