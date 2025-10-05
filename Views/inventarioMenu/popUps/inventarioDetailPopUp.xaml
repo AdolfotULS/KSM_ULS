@@ -14,27 +14,27 @@
         <VerticalStackLayout >
             <HorizontalStackLayout Spacing="5">
                 <Border >
-                    <Entry x:Name="resourceTypeResourceLabel" Placeholder="tipo recurso*" WidthRequest="300"></Entry>
+                    <Entry x:Name="ResourceTypeResourceLabel" Placeholder="tipo recurso*" WidthRequest="300"></Entry>
                 </Border>
                 <Border >
-                    <Entry x:Name="resourceAmountStockLabel" Placeholder="amount stock" WidthRequest="300"></Entry>
+                    <Entry x:Name="ResourceAmountStockLabel" Placeholder="amount stock" WidthRequest="300"></Entry>
                 </Border>
 
                 <Border >
-                    <Entry x:Name="resourceModelLabel" Placeholder="model name*" WidthRequest="300"></Entry>
+                    <Entry x:Name="ResourceModelLabel" Placeholder="model name*" WidthRequest="300"></Entry>
                 </Border>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Spacing="5">
                 <Border >
-                    <Entry x:Name="resourceSupplierLabel" Placeholder="supplier" WidthRequest="300"></Entry>
+                    <Entry x:Name="ResourceSupplierLabel" Placeholder="supplier" WidthRequest="300"></Entry>
                 </Border>
                 <Border >
-                    <Entry x:Name="resourceLastKnownLocationLabel" Placeholder="location*" WidthRequest="300"></Entry>
+                    <Entry x:Name="ResourceLastKnownLocationLabel" Placeholder="location*" WidthRequest="300"></Entry>
                 </Border>
 
                 <Border >
-                    <Entry x:Name="resourceLastDateLabel" Placeholder="0/0/0*" WidthRequest="300"></Entry>
+                    <Entry x:Name="ResourceLastDateLabel" Placeholder="0/0/0*" WidthRequest="300"></Entry>
                 </Border>
             </HorizontalStackLayout>
 
