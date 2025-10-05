@@ -3,9 +3,9 @@ using KSM_ULS.Model;
 using KSM_ULS.Views.inventarioMenu.popUps;
 namespace KSM_ULS.Views.inventarioMenu;
 
-public partial class inventarioDashView : ContentView
+public partial class InventarioDashView : ContentView
 {
-	public inventarioDashView()
+	public InventarioDashView()
 	{
         InitializeComponent();
         inventoryList.ItemsSource = new List<Recurso> {
@@ -36,11 +36,11 @@ public partial class inventarioDashView : ContentView
         };
 		
 	}
-	async void onClickedAddIventory(object sender, EventArgs e) {
-        var detailTicket = new inventarioAddPupUp();
+	async void OnClickedAddIventory(object sender, EventArgs e) {
+        var detailTicket = new InventarioAddPupUp();
         detailTicket.CanBeDismissedByTappingOutsideOfPopup = false;
         var pageReference = Shell.Current.CurrentPage;//rescata el elemento page actual para activar el popup desde hay
         await pageReference.ShowPopupAsync(detailTicket);
     }
-	void onChangeTextBarInventory(object sender, EventArgs e) { }
+	void OnChangeTextBarInventory(object sender, EventArgs e) { }
 }

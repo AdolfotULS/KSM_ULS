@@ -3,18 +3,18 @@ using KSM_ULS.Model;
 
 namespace KSM_ULS.Views.inventarioMenu.popUps;
 
-public partial class inventarioDetailPopUp : Popup
+public partial class InventarioDetailPopUp : Popup
 {
 	private Recurso resourceToEdit;
-	public inventarioDetailPopUp()
+	public InventarioDetailPopUp()
 	{
 		InitializeComponent();
 	}
-	void onClickedClosePopUp(object sender, EventArgs e)
+	void OnClickedClosePopUp(object sender, EventArgs e)
 	{
 		this.CloseAsync();
 	}
-	void onClickedEditResource(object sender, EventArgs e)
+	void OnClickedEditResource(object sender, EventArgs e)
 	{
 		//primero valida las entrys y edita el ticket actual
 	}

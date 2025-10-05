@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KSM_ULS.Views.inventarioMenu.inventarioCardView">
+             x:Class="KSM_ULS.Views.inventarioMenu.InventarioCardView">
     
     <VerticalStackLayout Background="Aqua">
         <HorizontalStackLayout Margin="0" Spacing="30">
@@ -9,20 +9,20 @@
             Text="Nombre Recurso*" x:Name="resourceName"
             VerticalOptions="Start" 
             HorizontalOptions="Start" />
-            <Label x:Name="inventoryTypeResourceLabel" Text="tipo recurso*" ></Label>
-            <Label x:Name="inventoryStateStockLabel" Text="state Stock*" ></Label>
-            <Label x:Name="inventoryPriceLabel" Text="Price*" ></Label>
-            <Button x:Name="inventoryAddButton" Text="+" CornerRadius="10" Clicked="onClickerAddButton"  ></Button>
-            <Button x:Name="inventaryMinusButton" Text="-" CornerRadius="10" Clicked="onClickedMinustButton"  ></Button>
-            <Button x:Name="inventaryEditButton" Text="edit" CornerRadius="10" Clicked="onClickedEditButton"  ></Button>
+            <Label x:Name="InventoryTypeResourceLabel" Text="tipo recurso*" ></Label>
+            <Label x:Name="InventoryStateStockLabel" Text="state Stock*" ></Label>
+            <Label x:Name="InventoryPriceLabel" Text="Price*" ></Label>
+            <Button x:Name="InventoryAddButton" Text="+" CornerRadius="10" Clicked="OnClickerAddButton"  ></Button>
+            <Button x:Name="InventaryMinusButton" Text="-" CornerRadius="10" Clicked="OnClickedMinustButton"  ></Button>
+            <Button x:Name="InventaryEditButton" Text="edit" CornerRadius="10" Clicked="OnClickedEditButton"  ></Button>
         </HorizontalStackLayout>
         
         <HorizontalStackLayout Margin="3" Spacing="7">
-            <Label x:Name="inventoryModelLabel" Text="model name*" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="inventoryStockAmountLabel" Text="stock amount*" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="inventoryLastKnownLocationLabel" Text="location*" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="inventarySupplierLabel" Text="supplier" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="inventaryLastDateLabel" Text="0/0/0*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="InventoryModelLabel" Text="model name*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="InventoryStockAmountLabel" Text="stock amount*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="InventoryLastKnownLocationLabel" Text="location*" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="InventarySupplierLabel" Text="supplier" TextColor="LightGray" FontSize="10"></Label>
+            <Label x:Name="InventaryLastDateLabel" Text="0/0/0*" TextColor="LightGray" FontSize="10"></Label>
 
         </HorizontalStackLayout>
     </VerticalStackLayout>
