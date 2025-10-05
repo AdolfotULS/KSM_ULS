@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KSM_ULS.Views.ReportesView"
+             BackgroundColor="#F9FAFB">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <!-- Título -->
+            <Label Text="Reportes y Análisis"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="#111827"/>
+
+            <Label Text="Estadísticas detalladas del negocio"
+                   FontSize="13"
+                   TextColor="#6B7280"
+                   Margin="0,0,0,10"/>
+
+            <!-- Tarjetas de resumen -->
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="12">
+
+                <!-- Ingresos -->
+                <Frame BorderColor="#E5E7EB" CornerRadius="12" Padding="14" Grid.Column="0">
+                    <VerticalStackLayout>
+                        <Label Text="Ingresos del Mes" FontAttributes="Bold" FontSize="13" TextColor="#111827"/>
+                        <Label Text="{Binding Resumen.IngresosMes, StringFormat='${0:N0}'}"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#059669"/>
+                        <Label Text="{Binding Resumen.VariacionIngresosMes, StringFormat='+{0}% vs mes anterior'}"
+                               FontSize="11"
+                               TextColor="#10B981"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Tickets -->
+                <Frame BorderColor="#E5E7EB" CornerRadius="12" Padding="14" Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label Text="Tickets Completados" FontAttributes="Bold" FontSize="13" TextColor="#111827"/>
+                        <Label Text="{Binding Resumen.TicketsCompletados}"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#2563EB"/>
+                        <Label Text="{Binding Resumen.VariacionTickets, StringFormat='+{0}% vs mes anterior'}"
+                               FontSize="11"
+                               TextColor="#60A5FA"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Clientes -->
+                <Frame BorderColor="#E5E7EB" CornerRadius="12" Padding="14" Grid.Column="2">
+                    <VerticalStackLayout>
+                        <Label Text="Clientes Nuevos" FontAttributes="Bold" FontSize="13" TextColor="#111827"/>
+                        <Label Text="{Binding Resumen.ClientesNuevos}"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#7C3AED"/>
+                        <Label Text="{Binding Resumen.VariacionClientes, StringFormat='+{0}% vs mes anterior'}"
+                               FontSize="11"
+                               TextColor="#A78BFA"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Gastos -->
+                <Frame BorderColor="#E5E7EB" CornerRadius="12" Padding="14" Grid.Column="3">
+                    <VerticalStackLayout>
+                        <Label Text="Gastos del Mes" FontAttributes="Bold" FontSize="13" TextColor="#111827"/>
+                        <Label Text="{Binding Resumen.GastosMes, StringFormat='${0:N0}'}"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#DC2626"/>
+                        <Label Text="{Binding Resumen.VariacionGastos, StringFormat='-{0}% vs mes anterior'}"
+                               FontSize="11"
+                               TextColor="#F87171"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+
+            <!-- Submenú de vistas -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="8" Margin="0,10,0,0">
+                <Button Text="Financiero"
+                        Command="{Binding CambiarVistaCommand}"
+                        CommandParameter="Financiero"
+                        BackgroundColor="{Binding IsFinanciero, Converter={StaticResource BoolToColorConverter}}"/>
+                <Button Text="Operaciones"
+                        Command="{Binding CambiarVistaCommand}"
+                        CommandParameter="Operaciones"
+                        BackgroundColor="{Binding IsOperaciones, Converter={StaticResource BoolToColorConverter}}"/>
+                <Button Text="Rendimiento"
+                        Command="{Binding CambiarVistaCommand}"
+                        CommandParameter="Rendimiento"
+                        BackgroundColor="{Binding IsRendimiento, Converter={StaticResource BoolToColorConverter}}"/>
+                <Button Text="Gastos"
+                        Command="{Binding CambiarVistaCommand}"
+                        CommandParameter="Gastos"
+                        BackgroundColor="{Binding IsGastos, Converter={StaticResource BoolToColorConverter}}"/>
+            </HorizontalStackLayout>
+
+            <!-- Contenedor donde se cargan las sub-vistas -->
+            <ContentView x:Name="ContenidoActual" />
+
+            <!-- Exportar Reportes -->
+            <Frame BorderColor="#E5E7EB" CornerRadius="12" Padding="12" Margin="0,20,0,10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="📄 Exportar Reportes" FontSize="14" FontAttributes="Bold"/>
+                    <Label Text="Genera reportes detallados en diferentes formatos" FontSize="12" TextColor="#6B7280"/>
+
+                    <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                        <Button Text="📕 Reporte Financiero PDF"
+                                BackgroundColor="#FEE2E2"
+                                TextColor="#B91C1C"
+                                WidthRequest="160"/>
+                        <Button Text="📗 Datos en Excel"
+                                BackgroundColor="#DCFCE7"
+                                TextColor="#15803D"
+                                WidthRequest="160"/>
+                        <Button Text="📘 Reporte de Técnicos"
+                                BackgroundColor="#DBEAFE"
+                                TextColor="#1E40AF"
+                                WidthRequest="160"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>
