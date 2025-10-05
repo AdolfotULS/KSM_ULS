@@ -18,7 +18,7 @@ public partial class InventarioCardView : ContentView
 		}
 	}
 	void OnClickerAddButton( object sender, EventArgs e) {
-		//añade al stock
+		//aÃ±ade al stock
 	}
 	void OnClickedMinustButton( object sender, EventArgs e ) {
 		//resta al stock
