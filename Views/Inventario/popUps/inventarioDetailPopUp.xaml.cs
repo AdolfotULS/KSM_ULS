@@ -1,7 +1,7 @@
 using CommunityToolkit.Maui.Views;
 using KSM_ULS.Model;
 
-namespace KSM_ULS.Views.inventarioMenu.popUps;
+namespace KSM_ULS.Views.Inventario.popUps;
 
 public partial class InventarioDetailPopUp : Popup
 {

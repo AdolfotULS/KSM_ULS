@@ -77,16 +77,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\inventarioMenu\inventarioCardView.xaml.cs">
+	  <Compile Update="Views\Inventario\InventarioCardView.xaml.cs">
 	    <DependentUpon>InventarioCardView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\inventarioMenu\inventarioDashView.xaml.cs">
+	  <Compile Update="Views\Inventario\inventarioDashView.xaml.cs">
 	    <DependentUpon>InventarioDashView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\inventarioMenu\popUps\inventarioAddPupUp.xaml.cs">
+	  <Compile Update="Views\Inventario\popUps\inventarioAddPupUp.xaml.cs">
 	    <DependentUpon>InventarioAddPupUp.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\inventarioMenu\popUps\inventarioDetailPopUp.xaml.cs">
+	  <Compile Update="Views\Inventario\popUps\inventarioDetailPopUp.xaml.cs">
 	    <DependentUpon>InventarioDetailPopUp.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>

@@ -1,8 +1,8 @@
 using CommunityToolkit.Maui.Extensions;
-using KSM_ULS.Views.inventarioMenu.popUps;
+using KSM_ULS.Views.Inventario.popUps;
 using KSM_ULS.Model;
 
-namespace KSM_ULS.Views.inventarioMenu;
+namespace KSM_ULS.Views.Inventario;
 
 public partial class InventarioCardView : ContentView
 {
