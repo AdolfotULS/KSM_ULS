@@ -1,4 +1,4 @@
-using KSM_ULS.Models;
+using KSM_ULS.Model;
 using System.Text.RegularExpressions;
 
 namespace KSM_ULS.Views;

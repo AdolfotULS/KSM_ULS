@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace KSM_ULS.Models
+namespace KSM_ULS.Model
 {
     public class Client : INotifyPropertyChanged
     {

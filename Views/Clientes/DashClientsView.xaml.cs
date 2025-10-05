@@ -1,5 +1,5 @@
 using System.Collections.ObjectModel;
-using KSM_ULS.Models;
+using KSM_ULS.Model;
 
 namespace KSM_ULS.Views;
 
