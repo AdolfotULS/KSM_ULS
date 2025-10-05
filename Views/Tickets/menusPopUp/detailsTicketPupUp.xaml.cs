@@ -1,7 +1,7 @@
 using CommunityToolkit.Maui.Views;
 using System.ComponentModel;
 
-namespace KSM_ULS.Views.TicketView.menusPopUp;
+namespace KSM_ULS.Views.Tickets.menusPopUp;
 
 public partial class DetailsTicketPupUp : Popup, INotifyPropertyChanged
 {

@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
 
-namespace KSM_ULS.Views.TicketView;
+namespace KSM_ULS.Views.Tickets;
 
 public partial class PopUpNewTicketView : Popup
 {

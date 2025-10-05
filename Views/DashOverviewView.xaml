@@ -117,15 +117,13 @@
                                     Text="Agregar Producto"
                                     BackgroundColor="{StaticResource PrimaryColor}"
                                     TextColor="White"
-                                    CornerRadius="8"
-                                    Clicked="OnAgregarProductoClicked" />
+                                    CornerRadius="8" />
 
                             <Button Grid.Column="1"
                                     Text="Ver Reportes"
                                     BackgroundColor="{StaticResource SecondaryColor}"
                                     TextColor="White"
-                                    CornerRadius="8"
-                                    Clicked="OnVerReportesClicked" />
+                                    CornerRadius="8" />
                         </Grid>
                     </StackLayout>
                 </Frame>

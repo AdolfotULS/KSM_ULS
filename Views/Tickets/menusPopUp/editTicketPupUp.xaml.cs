@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
 
-namespace KSM_ULS.Views.TicketView.menusPopUp;
+namespace KSM_ULS.Views.Tickets.menusPopUp;
 
 public partial class EditTicketPupUp : Popup
 {

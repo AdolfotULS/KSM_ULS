@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
@@ -104,16 +104,18 @@
 	  <MauiXaml Update="Views\DashOverviewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TicketView\menusPopUp\detailsTicketPupUp.xaml">
+	  <MauiXaml Update="Views\Tickets\menusPopUp\detailsTicketPupUp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TicketView\menusPopUp\editTicketPupUp.xaml">
+	  <MauiXaml Update="Views\Tickets\menusPopUp\editTicketPupUp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TicketView\ticketCardView.xaml">
+	  <MauiXaml Update="Views\Tickets\ticketCardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TicketView\TicketOverView.xaml">
+	  <MauiXaml Update="Views\Tickets\TicketOverView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Reportes\ReportesFinancieroView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
