@@ -1,11 +1,12 @@
 using Microsoft.Maui.Controls;
+using System;
 using System.Collections.Generic;
 
 namespace KSM_ULS.Pages
 {
     public partial class DashboardPage : ContentPage
     {
-        // Lista de botones de navegación inferior y menú lateral
+        // Lista de botones de navegaciÃ³n inferior y menÃº lateral
         private List<Button> bottomNavButtons;
         private List<Button> menuButtons;
 
@@ -34,7 +35,7 @@ namespace KSM_ULS.Pages
             };
         }
 
-        // Método para actualizar el color activo
+        // MÃ©todo para actualizar el color activo
         private void SetActiveView(string viewName)
         {
             // Colores
@@ -80,7 +81,7 @@ namespace KSM_ULS.Pages
                     break;
             }
 
-            // Menú lateral
+            // MenÃº lateral
             foreach (var btn in menuButtons)
             {
                 btn.BackgroundColor = inactiveBg;
@@ -122,13 +123,13 @@ namespace KSM_ULS.Pages
             }
         }
 
-        // Muestra/oculta el menú lateral
+        // Muestra/oculta el menÃº lateral
         private void OnMenuButtonClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = !MenuOverlay.IsVisible;
         }
 
-        // Cierra el menú lateral
+        // Cierra el menÃº lateral
         private void OnCloseMenuClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
@@ -137,102 +138,101 @@ namespace KSM_ULS.Pages
         // Muestra opciones adicionales
         private void OnOptionsButtonClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Opciones", "Menú de opciones adicionales", "OK");
+            DisplayAlert("Opciones", "MenÃº de opciones adicionales", "OK");
         }
 
-
-        // Acción rápida: ver reportes
+        // AcciÃ³n rÃ¡pida: ver reportes -> ahora carga la vista de reportes en el host
         private void OnVerReportesClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Reportes", "Navegando a reportes...", "OK");
+            LoadSubView("Reportes");
         }
 
-        // Navegación barra inferior: Dashboard
+        // NavegaciÃ³n barra inferior: Dashboard
         private void OnBottomNavDashboardClicked(object sender, EventArgs e)
         {
             LoadSubView("Dashboard");
         }
 
-        // Navegación barra inferior: Tickets
+        // NavegaciÃ³n barra inferior: Tickets
         private void OnBottomNavTicketsClicked(object sender, EventArgs e)
         {
             LoadSubView("Tickets");
         }
 
-        // Navegación barra inferior: Clientes
+        // NavegaciÃ³n barra inferior: Clientes
         private void OnBottomNavClientesClicked(object sender, EventArgs e)
         {
             LoadSubView("Clientes");
         }
 
-        // Navegación barra inferior: Inventario
+        // NavegaciÃ³n barra inferior: Inventario
         private void OnBottomNavInventarioClicked(object sender, EventArgs e)
         {
             LoadSubView("Inventario");
         }
 
-        // Navegación barra inferior: Reportes
+        // NavegaciÃ³n barra inferior: Reportes
         private void OnBottomNavReportesClicked(object sender, EventArgs e)
         {
             LoadSubView("Reportes");
         }
 
-        // Menú lateral: Dashboard
+        // MenÃº lateral: Dashboard
         private void OnMenuDashboardClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Dashboard");
         }
 
-        // Menú lateral: Tickets
+        // MenÃº lateral: Tickets
         private void OnMenuTicketsClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Tickets");
         }
 
-        // Menú lateral: Clientes
+        // MenÃº lateral: Clientes
         private void OnMenuClientesClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Clientes");
         }
 
-        // Menú lateral: Inventario
+        // MenÃº lateral: Inventario
         private void OnMenuInventarioClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Inventario");
         }
 
-        // Menú lateral: Garantías
+        // MenÃº lateral: GarantÃ­as
         private void OnMenuGarantiasClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Garantias");
         }
 
-        // Menú lateral: Reportes
+        // MenÃº lateral: Reportes
         private void OnMenuReportesClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Reportes");
         }
 
-        // Menú lateral: Configuración
+        // MenÃº lateral: ConfiguraciÃ³n
         private void OnMenuConfiguracionClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             DisplayAlert("Configuracion", "Navegando a configuracion...", "OK");
         }
 
-        // Menú lateral: Cerrar sesión con confirmación
+        // MenÃº lateral: Cerrar sesiÃ³n con confirmaciÃ³n
         private async void OnMenuCerrarSesionClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
 
             bool result = await DisplayAlert("Cerrar Sesion",
-                "¿Estas seguro de que deseas cerrar sesion?",
+                "Â¿Estas seguro de que deseas cerrar sesion?",
                 "Si", "Cancelar");
 
             if (result)
@@ -241,26 +241,33 @@ namespace KSM_ULS.Pages
             }
         }
 
-        // Carga una subvista en el ContentView host según el nombre
+        // Carga una subvista en el ContentView host segÃºn el nombre
         private void LoadSubView(string viewName)
         {
             try
             {
                 Host.Content = null;
                 SetActiveView(viewName);
-                // Selecciona la vista a mostrar según el nombre
+
+                // Selecciona la vista a mostrar segÃºn el nombre.
+                // SÃ³lo se instancian vistas que ya existen en el proyecto;
+                // para el resto se muestra un placeholder evitando errores de compilaciÃ³n.
                 View subView = viewName switch
                 {
                     "Dashboard" => new Views.DashOverviewView(),
                     "Clientes" => new Views.DashClientsView(),
-                    /*"Tickets" => new Views.DashTicketsView(),
-                    "Inventario" => new Views.DashInventoryView(),
-                    "Reportes" => new Views.DashReportsView(),
-                    "Garantias" => new Views.DashWarrantiesView(),*/
-                    _ => null
+                    "Reportes" => new Views.ReportesView(),
+                    _ => new Label
+                    {
+                        Text = "Vista no implementada",
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.Center
+                    }
                 };
+
                 Host.Content = subView;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 DisplayAlert("Error", $"Error al cargar la vista: {ex.Message}", "OK");
             }
