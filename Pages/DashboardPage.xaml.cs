@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 
 namespace KSM_ULS.Pages
@@ -261,8 +261,7 @@ namespace KSM_ULS.Pages
                     _ => null
                 };
                 Host.Content = subView;
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 DisplayAlert("Error", $"Error al cargar la vista: {ex.Message}", "OK");
             }
