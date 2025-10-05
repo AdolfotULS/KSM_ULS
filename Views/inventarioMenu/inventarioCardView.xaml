@@ -11,6 +11,7 @@
             HorizontalOptions="Start" />
             <Label x:Name="inventoryTypeResourceLabel" Text="tipo recurso*" ></Label>
             <Label x:Name="inventoryStateStockLabel" Text="state Stock*" ></Label>
+            <Label x:Name="inventoryPriceLabel" Text="Price*" ></Label>
             <Button x:Name="inventoryAddButton" Text="+" CornerRadius="10" Clicked="onClickerAddButton"  ></Button>
             <Button x:Name="inventaryMinusButton" Text="-" CornerRadius="10" Clicked="onClickedMinustButton"  ></Button>
             <Button x:Name="inventaryEditButton" Text="edit" CornerRadius="10" Clicked="onClickedEditButton"  ></Button>
