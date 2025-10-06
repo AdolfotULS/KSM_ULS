@@ -16,7 +16,8 @@
                       BackgroundColor="White"
                       StrokeThickness="0"
                       Stroke="Transparent"
-                      Padding="0"
+                      Padding="34"
+                      Margin="20"
                       MaximumWidthRequest="600"
                       WidthRequest="600"
                       HeightRequest="750">
