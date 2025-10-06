@@ -17,8 +17,8 @@ namespace KSM_ULS.Model
 
         public string CreationDate { get; set; }
         public int ExpectedRemuneration = 0;
-        protected int TicketState = 0; //0 inactivo, 1 en proceso, 2 finalizado TODO checkear esta logica
-
+        protected string TicketState = "Pendiente"; //0 inactivo, 1 en proceso, 2 finalizado TODO checkear esta logica
+        protected string TicketPriority = "baja";
         public ProgressNotes[] TecnitianNotes { get; set; }//notas del ticket que tenga registradas, puedes verlo en detalles
 
 
@@ -26,7 +26,7 @@ namespace KSM_ULS.Model
         private bool IsCopyTicket = false; //TODO save data of original version of ticket to recuparate if any case
         private Ticket CopyTicket;          // + could be a list of versions in DB instead of local machine 
 
-        public Ticket(int idIn, string clientData, string tecnitianInCharge, string limitDate = "0/0/0",string descripcionIn="filler")
+        public Ticket(int idIn, string clientData, string tecnitianInCharge, string limitDate = "0/0/0",string descripcionIn="filler",string PrioridadEntrante = "baja")
         {
             this.Id = idIn;
             this.ClientName = clientData;
@@ -34,6 +34,7 @@ namespace KSM_ULS.Model
             this.LimitDate = limitDate;
             this.CreationDate = "0/0/0"; //TODO , take date automaticamente
             this.Description = descripcionIn;
+            this.TicketPriority = PrioridadEntrante;
         }
         
 
@@ -53,19 +54,21 @@ namespace KSM_ULS.Model
             switch (setState)
             {
                 case "pending":
-                    this.TicketState = 0;
+                    this.TicketState = "pending";
                     break;
                 case "in progress":
-                    this.TicketState = 1;
+                    this.TicketState = "in progress";
                     break;
                 case "finalized":
-                    this.TicketState = 2;
+                    this.TicketState = "finalized";
                     break;
-                default: this.TicketState = 0; break;
+                default: this.TicketState = "pending"; break;
             }
             
         }
-        public int GetState() { return this.TicketState; }
+        public string GetState() { return this.TicketState; }
+        public void SetPriority(string prioIn) { this.TicketPriority = prioIn; }
+        public string GetPrioriry() { return this.TicketPriority; }
         public void ChangeTecnitianInCharge(string[] tecnitianNames) //TODO adapt to class Tecnitian
         {
             //sets the 1 or multiple tecnitian in charge of this ticket

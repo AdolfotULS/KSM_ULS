@@ -34,12 +34,15 @@ public partial class TicketCardView : ContentView
 
 		if (BindingContext is Ticket ticket && TicketsSource != null)
 		{
+			
 			this.ticketIndex = TicketsSource.IndexOf(ticket);
             this.ticketData = ticket;
 			this.ticketName.Text = ticket.Id.ToString();
 			this.TicketClientName.Text = ticket.ClientName;
 			this.TicketTecnitianName.Text = ticket.TecnitianNames;
 			this.TicketLimitDate.Text = ticket.LimitDate;
+			this.TicketStateLabel.Text = ticket.GetState();
+			this.TicketPriorityLabel.Text = ticket.GetPrioriry();
 			this.TickeAmountRemuneration.Text = ticket.ExpectedRemuneration.ToString();
 			this.TicketDescription.Text = ticket.Description;
 		}

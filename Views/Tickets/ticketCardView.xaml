@@ -8,7 +8,7 @@
             Text="Nombre Ticket*" x:Name="ticketName"
             VerticalOptions="Start" 
             HorizontalOptions="Start" />
-        <Label x:Name="TicketStateLabel" Text="estado Ticket*" VerticalOptions="Center"></Label>
+        <Label x:Name="TicketStateLabel" Text="" VerticalOptions="Center"></Label>
         <Label x:Name="TicketPriorityLabel" Text="prioridad Ticket*" VerticalOptions="Center"></Label>
         <Button x:Name="TicketDetailButton" Text="Detales" CornerRadius="10" Clicked="OnClickerDetailButton"  ></Button>
         <Button x:Name="TicketEditionButton" Text="Editar" CornerRadius="10" Clicked="OnClickedEditTicketButton"  ></Button>
