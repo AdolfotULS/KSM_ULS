@@ -10,8 +10,9 @@ public partial class DetailsTicketPupUp : Popup, INotifyPropertyChanged
     private string ClientName { get; set; }
 	public DetailsTicketPupUp(Ticket ticketIn)
 	{
+        InitializeComponent();
+
         this.TicketQueSeReferencia = ticketIn;
-		InitializeComponent();
         SetDataInLabels();
     }
     private void SetDataInLabels()

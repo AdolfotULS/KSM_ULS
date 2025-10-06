@@ -63,7 +63,15 @@ public partial class PopUpNewTicketView : Popup
     }
     private bool VerificarCampos()
     {
-       
+
+        if (!int.TryParse(IdNameLabel.Text, out int id))
+        {
+            // IdNameLabel.Text no es un entero válido
+            return false;
+        }
+
+        // Agrega aquí otras validaciones si quieres
+
         return true;
     }
 }
