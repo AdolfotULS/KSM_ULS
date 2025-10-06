@@ -63,13 +63,7 @@ public partial class PopUpNewTicketView : Popup
     }
     private bool VerificarCampos()
     {
-        string clienName = this.ClientNameLabel.Text;
-        string tecnitianName = this.TecnitiansLabel.Text;
-        string limitDate = this.LimitDateLabel.Text;
-        string idName = this.IdNameLabel.Text;
-        string extra = this.ExtraLabel.Text;
-        string fechaEmision = this.EmisionDateLabel.Text;
-        string descripcion = this.TextBlockMainDescription.Text;
+       
         return true;
     }
 }

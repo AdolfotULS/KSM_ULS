@@ -68,5 +68,9 @@ public partial class EditTicketPupUp : Popup
                 break;
         }
     }
-    private bool DatosValidos() { return true; }
+    private bool DatosValidos() {
+       
+
+        return true;
+    }
 }
