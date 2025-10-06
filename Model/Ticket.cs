@@ -52,7 +52,7 @@ namespace KSM_ULS.Model
 
             switch (setState)
             {
-                case "incative":
+                case "pending":
                     this.TicketState = 0;
                     break;
                 case "in progress":

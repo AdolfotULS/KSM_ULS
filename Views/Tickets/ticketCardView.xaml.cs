@@ -45,10 +45,28 @@ public partial class TicketCardView : ContentView
 		}
 	}
 
-	void OnPickerSelectionStates(object sender, EventArgs e)
+	async void OnPickerSelectionStates(object sender, EventArgs e)
 	{
-		//change the state of the respective ticket
-	}
+        //change the state of the respective ticket
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+
+		switch (selectedIndex) {
+			case 0:
+				this.ticketData.ChangeStateTicket("finalized");
+				this.TicketStateLabel.Text = "Finalizado";
+                break;
+			case 1:
+                this.ticketData.ChangeStateTicket("pending");
+                this.TicketStateLabel.Text = "Pendiente";
+                break;
+			case 2:
+                this.ticketData.ChangeStateTicket("in progress");
+                this.TicketStateLabel.Text = "En Progreso";
+                break;
+                ReferenciaPadreView.ActualizarElemento(ticketData,this.ticketIndex);
+        }
+    }
 	async void OnClickedEditTicketButton(object sender, EventArgs e) {
 		//show popup menu with editable field for ticket
 
