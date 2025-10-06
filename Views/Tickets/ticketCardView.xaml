@@ -4,16 +4,16 @@
              x:Class="KSM_ULS.Views.Tickets.TicketCardView">
     <VerticalStackLayout>
         <HorizontalStackLayout Margin="5" Spacing="30">
-        <Label 
+            <Label TextColor="Black"
             Text="Nombre Ticket*" x:Name="ticketName"
             VerticalOptions="Start" 
             HorizontalOptions="Start" />
-        <Label x:Name="TicketStateLabel" Text="" VerticalOptions="Center"></Label>
-        <Label x:Name="TicketPriorityLabel" Text="" VerticalOptions="Center"></Label>
-        <Button x:Name="TicketDetailButton" Text="Detales" CornerRadius="10" Clicked="OnClickerDetailButton"  ></Button>
-        <Button x:Name="TicketEditionButton" Text="Editar" CornerRadius="10" Clicked="OnClickedEditTicketButton"  ></Button>
+        <Label TextColor="Black" x:Name="TicketStateLabel" Text="" VerticalOptions="Center"></Label>
+            <Label TextColor="Black" x:Name="TicketPriorityLabel" Text="" VerticalOptions="Center"></Label>
+            <Button TextColor="Black" x:Name="TicketDetailButton" Text="Detales" CornerRadius="10" Clicked="OnClickerDetailButton"  ></Button>
+            <Button TextColor="Black" x:Name="TicketEditionButton" Text="Editar" CornerRadius="10" Clicked="OnClickedEditTicketButton"  ></Button>
 
-            <Picker x:Name="TicketStatePicker" WidthRequest="120" Title="Estado" SelectedIndexChanged="OnPickerSelectionStates">
+            <Picker TextColor="Black" x:Name="TicketStatePicker" WidthRequest="120" Title="Estado" SelectedIndexChanged="OnPickerSelectionStates">
                 <Picker.Items>
                     <x:String>Finalizado</x:String>
                     <x:String>Pendiente</x:String>
@@ -21,12 +21,12 @@
                 </Picker.Items>
             </Picker>
         </HorizontalStackLayout>
-        <Label x:Name="TicketDescription" Text="" TextColor="Gray" FontSize="13"></Label>
+        <Label TextColor="Black" x:Name="TicketDescription" Text=""  FontSize="13"></Label>
         <HorizontalStackLayout Margin="3" Spacing="7">
-            <Label x:Name="TicketClientName" Text="" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="TicketTecnitianName" Text="" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="TicketLimitDate" Text="" TextColor="LightGray" FontSize="10"></Label>
-            <Label x:Name="TickeAmountRemuneration" Text="" TextColor="LightGray" FontSize="10"></Label>
+            <Label TextColor="Black" x:Name="TicketClientName" Text="" FontSize="10"></Label>
+            <Label TextColor="Black" x:Name="TicketTecnitianName" Text=""  FontSize="10"></Label>
+            <Label TextColor="Black" x:Name="TicketLimitDate" Text="" FontSize="10"></Label>
+            <Label TextColor="Black" x:Name="TickeAmountRemuneration"  FontSize="10"></Label>
             
         </HorizontalStackLayout>
     </VerticalStackLayout>
