@@ -28,12 +28,19 @@
                     <Entry x:Name="idNameLabel" Text="id placeHolder*"></Entry>
                 </Frame>
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="extraLabel" Text="extra label*"></Entry>
+                    <Entry x:Name="remunareationLabel" Text="extra label*"></Entry>
                 </Frame>
 
                 <Frame BorderColor="Gray">
                     <Entry x:Name="emisionDateLabel" Text="0/0/0 *"></Entry>
                 </Frame>
+                <Picker x:Name="TicketPriorityPicker" WidthRequest="120" Title="Prioridad" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>Alta</x:String>
+                        <x:String>Media</x:String>
+                        <x:String>Baja</x:String>
+                    </Picker.Items>
+                </Picker>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

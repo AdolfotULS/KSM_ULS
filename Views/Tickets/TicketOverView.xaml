@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:KSM_ULS.Views.Tickets"
              x:Class="KSM_ULS.Views.Tickets.TicketOverView"
-             >
+             x:Name="RootParentView">
         
     <VerticalStackLayout Spacing="4">
         <HorizontalStackLayout Spacing="150">
@@ -20,7 +20,7 @@
             <CollectionView x:Name="TicketList" ItemsLayout="VerticalList" Margin="5" HeightRequest="300">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <local:TicketCardView></local:TicketCardView>
+                        <local:TicketCardView TicketsSource="{Binding Source={x:Reference TicketList}, Path=ItemsSource}" ReferenciaPadreView ="{x:Reference RootParentView}"></local:TicketCardView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
