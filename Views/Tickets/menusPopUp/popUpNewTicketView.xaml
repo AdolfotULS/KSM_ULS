@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KSM_ULS.Views.Tickets.PopUpNewTicketView"
             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    
     <VerticalStackLayout>
         <HorizontalStackLayout>
             <Label HorizontalOptions="Start" x:Name="TicketNameLabel" Text="Ticket Name place Holder*"></Label>
@@ -24,7 +25,7 @@
 
             <HorizontalStackLayout>
                 <Frame BorderColor="Gray">
-                    <Entry IsReadOnly="True" x:Name="IdNameLabel" Text="id automatic name*"></Entry>
+                    <Entry   x:Name="IdNameLabel" Text="id automatic name*"></Entry>
                 </Frame>
                 <Frame BorderColor="Gray">
                     <Entry x:Name="ExtraLabel" Text="extra label*"></Entry>

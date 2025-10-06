@@ -10,32 +10,28 @@ namespace KSM_ULS.Views.Tickets;
 public partial class TicketOverView : ContentView
 {
 	private string searchQueryText ;
-	
-	private List<Ticket> ticketsUsuario { get; set; }
+	private ObservableCollection<Ticket> TicketsUsuario { get; set; }
 		public TicketOverView()
 		{
 		
 			InitializeComponent();
 
 			BindingContext = this;
-			TicketList.ItemsSource = new List<Ticket> {
-					new Ticket(2,"cliente1","tec1"),
-					new Ticket(5,"cliente2","tec2"),
-					new Ticket(1,"cliente1","tec3"),
-					new Ticket(3,"cliente3","tec2"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked"),
-					new Ticket(4,"trol","hacked")
-				
-				};
-		
 
-		}
+
+        TicketsUsuario = new ObservableCollection<Ticket> {
+						new Ticket(2,"cliente1","tec1"),
+						new Ticket(5,"cliente2","tec2"),
+						new Ticket(1,"cliente4","tec3"),
+						new Ticket(3,"cliente3","tec2"),
+						new Ticket(4,"trol","hacked"),
+						new Ticket(4,"trol","hacked")
+
+					};
+		
+        TicketList.ItemsSource = TicketsUsuario;
+
+    }
 
 	void OnChangeTextSearchBarTickets(object sender, TextChangedEventArgs eventData)
 	{
@@ -43,16 +39,26 @@ public partial class TicketOverView : ContentView
 		this.searchQueryText = eventData.NewTextValue; //this read the searcbox 
 		
 	}
-	
-	async void OnClickedButtonNewTicketCreation(object sender, EventArgs e)
+	public void ActualizarLista(ObservableCollection<Ticket> entradaTickets)
+	{
+		this.TicketsUsuario = entradaTickets;
+		
+	}
+    public void ActualizarElemento(Ticket ticketIn, int IndexIn)
+	{
+		this.TicketsUsuario[IndexIn] = ticketIn;
+	}
+    async void OnClickedButtonNewTicketCreation(object sender, EventArgs e)
 	{
 		//aparece un pop up que genera una ventana para llenar datos de nuevo ticket
 
 		//TODO revisar esta logica
-		var popUpNewTicket = new PopUpNewTicketView();
+		var popUpNewTicket = new PopUpNewTicketView(TicketsUsuario,this);
 		popUpNewTicket.CanBeDismissedByTappingOutsideOfPopup = false;
 		var pageReference = Shell.Current.CurrentPage;//rescata el elemento page actual para activar el popup desde hay
 		await pageReference.ShowPopupAsync(popUpNewTicket);
 	}
+
+	
 
 }

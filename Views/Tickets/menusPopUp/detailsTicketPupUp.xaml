@@ -27,7 +27,7 @@
                     <Label x:Name="IdNameLabel" Text="id placeHolder*"></Label>
                 </Frame>
                 <Frame BorderColor="Gray">
-                    <Label x:Name="ExtraLabel" Text="extra label*"></Label>
+                    <Label x:Name="remunareationLabel" Text="extra label*"></Label>
                 </Frame>
 
                 <Frame BorderColor="Gray">

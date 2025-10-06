@@ -26,13 +26,14 @@ namespace KSM_ULS.Model
         private bool IsCopyTicket = false; //TODO save data of original version of ticket to recuparate if any case
         private Ticket CopyTicket;          // + could be a list of versions in DB instead of local machine 
 
-        public Ticket(int idIn, string clientData, string tecnitianInCharge, string limitDate = "0/0/0")
+        public Ticket(int idIn, string clientData, string tecnitianInCharge, string limitDate = "0/0/0",string descripcionIn="filler")
         {
             this.Id = idIn;
             this.ClientName = clientData;
             this.TecnitianNames = tecnitianInCharge;
             this.LimitDate = limitDate;
             this.CreationDate = "0/0/0"; //TODO , take date automaticamente
+            this.Description = descripcionIn;
         }
         
 
