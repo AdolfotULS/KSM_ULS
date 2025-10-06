@@ -33,6 +33,7 @@ namespace KSM_ULS.Pages
                 MenuGarantiasButton,
                 MenuReportesButton
             };
+            Host.Content = new Views.DashOverviewView();
         }
 
         // M�todo para actualizar el color activo
@@ -257,10 +258,12 @@ namespace KSM_ULS.Pages
                     "Dashboard" => new Views.DashOverviewView(),
                     "Clientes" => new Views.DashClientsView(),
                     "Reportes" => new Views.ReportesView(),
+                    "Inventario" => new Views.Inventario.InventarioDashView(),
+                    "Tickets" => new Views.Tickets.TicketOverView(),
                     "Garantias" => new Views.GarantiasView(),
                     _ => new Label
                     {
-                        Text = "Vista no implementada",
+                        Text = "Vista no encontrada",
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center
                     }
