@@ -13,19 +13,12 @@ namespace KSM_ULS
 
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit() // <-- Chain this directly after .UseMauiApp<App>()
+                .UseMauiCommunityToolkit() 
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
-            // ✅ Registrar el handler de Microcharts (versión actual)
-            builder.UseMicrocharts();
-
-#if DEBUG
-            builder.Logging.AddDebug();
-#endif
 
             return builder.Build();
         }

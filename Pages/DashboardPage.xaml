@@ -107,7 +107,7 @@
                     Text="📊 Dashboard"
                     FontSize="10"
                     BackgroundColor="Transparent"
-                    TextColor="Gray"
+                    TextColor="Black"
                     Clicked="OnBottomNavDashboardClicked" />
 
             <!-- tickets -->
@@ -115,7 +115,7 @@
                     Text="🎫 Tickets"
                     FontSize="10"
                     BackgroundColor="Transparent"
-                    TextColor="Gray"
+                    TextColor="Black"
                     Clicked="OnBottomNavTicketsClicked" />
 
             <!-- clientes -->
@@ -123,7 +123,7 @@
                     Text="👥 Clientes"
                     FontSize="10"
                     BackgroundColor="Transparent"
-                    TextColor="Gray"
+                    TextColor="Black"
                     Clicked="OnBottomNavClientesClicked" />
 
             <!-- inventario (activo) -->
