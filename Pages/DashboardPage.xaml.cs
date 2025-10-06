@@ -6,7 +6,7 @@ namespace KSM_ULS.Pages
 {
     public partial class DashboardPage : ContentPage
     {
-        // Lista de botones de navegación inferior y menú lateral
+        // Lista de botones de navegaci�n inferior y men� lateral
         private List<Button> bottomNavButtons;
         private List<Button> menuButtons;
 
@@ -35,7 +35,7 @@ namespace KSM_ULS.Pages
             };
         }
 
-        // Método para actualizar el color activo
+        // M�todo para actualizar el color activo
         private void SetActiveView(string viewName)
         {
             // Colores
@@ -81,7 +81,7 @@ namespace KSM_ULS.Pages
                     break;
             }
 
-            // Menú lateral
+            // Men� lateral
             foreach (var btn in menuButtons)
             {
                 btn.BackgroundColor = inactiveBg;

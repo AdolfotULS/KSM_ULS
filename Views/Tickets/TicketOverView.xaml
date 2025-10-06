@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KSM_ULS.Views.Tickets"
+             x:Class="KSM_ULS.Views.Tickets.TicketOverView"
+             >
+        
+    <VerticalStackLayout Spacing="4">
+        <HorizontalStackLayout Spacing="150">
+            <Label 
+                Text="Gestion de Tickets"
+                HorizontalOptions="Start"
+             FontSize="25"/>
+            <Label Text="Administra los tickets de servicio Tecnico" HorizontalOptions="Center"></Label>
+            <Button Text="+ Nuevo ticket" HorizontalOptions="End" Clicked="OnClickedButtonNewTicketCreation"></Button>
+        </HorizontalStackLayout>
+        <SearchBar x:Name ="searchbarTicketQuery" Text="" Placeholder="Especificaciones Ticket" Background="White" TextChanged="OnChangeTextSearchBarTickets"></SearchBar>
+        
+            <Border Margin="5" Padding="2">
+            <CollectionView x:Name="TicketList" ItemsLayout="VerticalList" Margin="5" HeightRequest="300">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <local:TicketCardView></local:TicketCardView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>        
+    </VerticalStackLayout>
+
+
+
+</ContentView>

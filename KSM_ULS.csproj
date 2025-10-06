@@ -78,13 +78,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Inventario\InventarioCardView.xaml.cs">
+	    <DependentUpon>InventarioCardView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Inventario\inventarioDashView.xaml.cs">
+	    <DependentUpon>InventarioDashView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Inventario\popUps\inventarioAddPupUp.xaml.cs">
+	    <DependentUpon>InventarioAddPupUp.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Inventario\popUps\inventarioDetailPopUp.xaml.cs">
+	    <DependentUpon>InventarioDetailPopUp.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Pages\DashboardPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DashClientsView.xaml">
+	  <MauiXaml Update="Views\Clientes\DashClientsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DashOverviewView.xaml">

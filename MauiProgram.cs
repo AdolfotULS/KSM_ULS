@@ -1,4 +1,7 @@
-﻿using CommunityToolkit.Maui; 
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Hosting;
+using Microcharts.Maui;
+using CommunityToolkit.Maui; // ✅ Este sí debe existir en tu versión
 
 namespace KSM_ULS
 {
