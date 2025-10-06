@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using System;
 using System.Collections.Generic;
 
 namespace KSM_ULS.Pages
@@ -32,6 +33,7 @@ namespace KSM_ULS.Pages
                 MenuGarantiasButton,
                 MenuReportesButton
             };
+            Host.Content = new Views.DashOverviewView();
         }
 
         // M�todo para actualizar el color activo
@@ -122,13 +124,13 @@ namespace KSM_ULS.Pages
             }
         }
 
-        // Muestra/oculta el men� lateral
+        // Muestra/oculta el menú lateral
         private void OnMenuButtonClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = !MenuOverlay.IsVisible;
         }
 
-        // Cierra el men� lateral
+        // Cierra el menú lateral
         private void OnCloseMenuClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
@@ -137,102 +139,101 @@ namespace KSM_ULS.Pages
         // Muestra opciones adicionales
         private void OnOptionsButtonClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Opciones", "Men� de opciones adicionales", "OK");
+            DisplayAlert("Opciones", "Menú de opciones adicionales", "OK");
         }
 
-
-        // Acci�n r�pida: ver reportes
+        // Acción rápida: ver reportes -> ahora carga la vista de reportes en el host
         private void OnVerReportesClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Reportes", "Navegando a reportes...", "OK");
+            LoadSubView("Reportes");
         }
 
-        // Navegaci�n barra inferior: Dashboard
+        // Navegación barra inferior: Dashboard
         private void OnBottomNavDashboardClicked(object sender, EventArgs e)
         {
             LoadSubView("Dashboard");
         }
 
-        // Navegaci�n barra inferior: Tickets
+        // Navegación barra inferior: Tickets
         private void OnBottomNavTicketsClicked(object sender, EventArgs e)
         {
             LoadSubView("Tickets");
         }
 
-        // Navegaci�n barra inferior: Clientes
+        // Navegación barra inferior: Clientes
         private void OnBottomNavClientesClicked(object sender, EventArgs e)
         {
             LoadSubView("Clientes");
         }
 
-        // Navegaci�n barra inferior: Inventario
+        // Navegación barra inferior: Inventario
         private void OnBottomNavInventarioClicked(object sender, EventArgs e)
         {
             LoadSubView("Inventario");
         }
 
-        // Navegaci�n barra inferior: Reportes
+        // Navegación barra inferior: Reportes
         private void OnBottomNavReportesClicked(object sender, EventArgs e)
         {
             LoadSubView("Reportes");
         }
 
-        // Men� lateral: Dashboard
+        // Menú lateral: Dashboard
         private void OnMenuDashboardClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Dashboard");
         }
 
-        // Men� lateral: Tickets
+        // Menú lateral: Tickets
         private void OnMenuTicketsClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Tickets");
         }
 
-        // Men� lateral: Clientes
+        // Menú lateral: Clientes
         private void OnMenuClientesClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Clientes");
         }
 
-        // Men� lateral: Inventario
+        // Menú lateral: Inventario
         private void OnMenuInventarioClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Inventario");
         }
 
-        // Men� lateral: Garant�as
+        // Menú lateral: Garantías
         private void OnMenuGarantiasClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Garantias");
         }
 
-        // Men� lateral: Reportes
+        // Menú lateral: Reportes
         private void OnMenuReportesClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             LoadSubView("Reportes");
         }
 
-        // Men� lateral: Configuraci�n
+        // Menú lateral: Configuración
         private void OnMenuConfiguracionClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
             DisplayAlert("Configuracion", "Navegando a configuracion...", "OK");
         }
 
-        // Men� lateral: Cerrar sesi�n con confirmaci�n
+        // Menú lateral: Cerrar sesión con confirmación
         private async void OnMenuCerrarSesionClicked(object sender, EventArgs e)
         {
             MenuOverlay.IsVisible = false;
 
             bool result = await DisplayAlert("Cerrar Sesion",
-                "�Estas seguro de que deseas cerrar sesion?",
+                "¿Estas seguro de que deseas cerrar sesion?",
                 "Si", "Cancelar");
 
             if (result)
@@ -241,14 +242,17 @@ namespace KSM_ULS.Pages
             }
         }
 
-        // Carga una subvista en el ContentView host seg�n el nombre
+        // Carga una subvista en el ContentView host según el nombre
         private void LoadSubView(string viewName)
         {
             try
             {
                 Host.Content = null;
                 SetActiveView(viewName);
-                // Selecciona la vista a mostrar seg�n el nombre
+
+                // Selecciona la vista a mostrar según el nombre.
+                // Sólo se instancian vistas que ya existen en el proyecto;
+                // para el resto se muestra un placeholder evitando errores de compilación.
                 View subView = viewName switch
                 {
                     "Dashboard" => new Views.DashOverviewView(),
@@ -256,10 +260,18 @@ namespace KSM_ULS.Pages
                     "Reportes" => new Views.ReportesView(),
                     "Inventario" => new Views.Inventario.InventarioDashView(),
                     "Tickets" => new Views.Tickets.TicketOverView(),
-                    _ => null
+                    "Garantias" => new Views.GarantiasView(),
+                    _ => new Label
+                    {
+                        Text = "Vista no encontrada",
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.Center
+                    }
                 };
+
                 Host.Content = subView;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 DisplayAlert("Error", $"Error al cargar la vista: {ex.Message}", "OK");
             }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KSM_ULS.ViewModel"
+             xmlns:model="clr-namespace:KSM_ULS.Model"
+             x:DataType="viewmodels:GarantiasViewModel"
+             x:Class="KSM_ULS.Views.GarantiasView">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Encabezado -->
+            <HorizontalStackLayout HorizontalOptions="Fill" VerticalOptions="Center">
+                <Label Text="Gestión de Garantías"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"
+                       TextColor="Black"/>
+                <Button Text="+ Nueva Garantía"
+                        BackgroundColor="#2563EB"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Command="{Binding NuevaGarantiaCommand}"/>
+            </HorizontalStackLayout>
+
+            <Label Text="Administra las garantías de servicios realizados"
+                   FontSize="13"
+                   TextColor="#6B7280"/>
+
+            <!-- Tarjetas resumen -->
+            <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween">
+                <Frame WidthRequest="160" Padding="10" CornerRadius="12" BorderColor="#E5E7EB">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding TotalGarantias}" FontSize="22" FontAttributes="Bold"/>
+                        <Label Text="Total Garantías" FontSize="12" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame WidthRequest="160" Padding="10" CornerRadius="12" BorderColor="#E5E7EB">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding GarantiasActivas}" FontSize="22" FontAttributes="Bold" TextColor="#10B981"/>
+                        <Label Text="Activas" FontSize="12" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame WidthRequest="160" Padding="10" CornerRadius="12" BorderColor="#E5E7EB">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding GarantiasPorVencer}" FontSize="22" FontAttributes="Bold" TextColor="#F59E0B"/>
+                        <Label Text="Por Vencer" FontSize="12" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame WidthRequest="160" Padding="10" CornerRadius="12" BorderColor="#E5E7EB">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding GarantiasPendientes}" FontSize="22" FontAttributes="Bold" TextColor="#DC2626"/>
+                        <Label Text="Pendientes" FontSize="12" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </FlexLayout>
+
+            <!-- Lista de garantías -->
+            <CollectionView x:Name="GarantiasCollectionView" ItemsSource="{Binding Garantias}" Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:GarantiaModel">
+                        <Frame BorderColor="#E5E7EB" CornerRadius="12" Padding="14" Margin="0,0,0,10">
+                            <VerticalStackLayout>
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding Codigo}" FontAttributes="Bold" TextColor="Black"/>
+                                    <Label Text="{Binding Ticket}" Margin="8,0,0,0" TextColor="#2563EB"/>
+                                    <Label Text="{Binding Estado}" Margin="10,0,0,0" TextColor="#10B981"/>
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding Cliente}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Terminos}" FontSize="12" TextColor="#6B7280"/>
+                                <Label Text=" " />
+                                <HorizontalStackLayout>
+                                    <Button Text="Ver Detalles" FontSize="12" CornerRadius="10" Padding="8,4"
+                                            Command="{Binding Source={x:Reference GarantiasCollectionView}, Path=BindingContext.VerDetallesCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                    <Button Text="Editar" FontSize="12" CornerRadius="10" Padding="8,4"
+                                            Command="{Binding Source={x:Reference GarantiasCollectionView}, Path=BindingContext.EditarGarantiaCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>

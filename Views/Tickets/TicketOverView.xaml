@@ -8,10 +8,10 @@
     <VerticalStackLayout Spacing="4">
         <HorizontalStackLayout Spacing="150">
             <Label 
-                Text="Gestion de Tickets"
+                Text=""
                 HorizontalOptions="Start"
              FontSize="25"/>
-            <Label Text="Administra los tickets de servicio Tecnico" HorizontalOptions="Center"></Label>
+            <Label Text="" HorizontalOptions="Center"></Label>
             <Button Text="+ Nuevo ticket" HorizontalOptions="End" Clicked="OnClickedButtonNewTicketCreation"></Button>
         </HorizontalStackLayout>
         <SearchBar x:Name ="searchbarTicketQuery" Text="" Placeholder="Especificaciones Ticket" Background="White" TextChanged="OnChangeTextSearchBarTickets"></SearchBar>
