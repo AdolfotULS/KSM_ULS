@@ -69,7 +69,15 @@ public partial class EditTicketPupUp : Popup
         }
     }
     private bool DatosValidos() {
-       
+
+
+        if (!int.TryParse(this.idNameLabel.Text, out int id))
+        {
+            // IdNameLabel.Text no es un entero válido
+            return false;
+        }
+
+        // Agrega aquí otras validaciones si quieres
 
         return true;
     }

@@ -6,35 +6,35 @@
 
     <VerticalStackLayout>
         <HorizontalStackLayout>
-            <Label HorizontalOptions="Start" x:Name="ticketNameLabel" Text="Ticket Name place Holder*"></Label>
+            <Label TextColor="Black" HorizontalOptions="Start" x:Name="ticketNameLabel" Text="Ticket Name place Holder*"></Label>
             <Button HorizontalOptions="End" Text="cerrar" Clicked="OnClickedClosePopUp"></Button>
         </HorizontalStackLayout>
         <VerticalStackLayout Grid.Column="3">
             <HorizontalStackLayout>
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="clientNameLabel" Text="client placeHolder*"></Entry>
+                    <Entry TextColor="Black" x:Name="clientNameLabel" Text="client placeHolder*"></Entry>
                 </Frame>
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="TecnitiansLabel" Text="tecnitian placeholder*"></Entry>
+                    <Entry TextColor="Black" x:Name="TecnitiansLabel" Text="tecnitian placeholder*"></Entry>
                 </Frame>
 
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="limitDateLabel" Text="0/0/0"></Entry>
+                    <Entry TextColor="Black" x:Name="limitDateLabel" Text="0/0/0"></Entry>
                 </Frame>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout>
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="idNameLabel" Text="id placeHolder*"></Entry>
+                    <Entry TextColor="Black" x:Name="idNameLabel" Text="id placeHolder*"></Entry>
                 </Frame>
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="remunareationLabel" Text="extra label*"></Entry>
+                    <Entry TextColor="Black" x:Name="remunareationLabel" Text="extra label*"></Entry>
                 </Frame>
 
                 <Frame BorderColor="Gray">
-                    <Entry x:Name="emisionDateLabel" Text="0/0/0 *"></Entry>
+                    <Entry TextColor="Black" x:Name="emisionDateLabel" Text="0/0/0 *"></Entry>
                 </Frame>
-                <Picker x:Name="TicketPriorityPicker" WidthRequest="120" Title="Prioridad" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                <Picker TextColor="Black" x:Name="TicketPriorityPicker" WidthRequest="120" Title="Prioridad" SelectedIndexChanged="OnPickerSelectedIndexChanged">
                     <Picker.Items>
                         <x:String>Alta</x:String>
                         <x:String>Media</x:String>
@@ -45,7 +45,7 @@
 
         </VerticalStackLayout>
         <Frame BorderColor="Gray" >
-            <Entry IsReadOnly="False"  x:Name="textBlockMainDescription"  Text="this is your description yeey" >
+            <Entry IsReadOnly="False" TextColor="Black" x:Name="textBlockMainDescription"  Text="this is your description yeey" >
             </Entry>
         </Frame>
         <!--aqui lista de comentarios respectivo TODO-->
